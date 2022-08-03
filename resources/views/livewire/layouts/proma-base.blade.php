@@ -247,7 +247,7 @@
                 </a>
             </div>
             {{-- Bottom | Help Center --}}
-            <div class="hidden flex-col mt-32 px-6 w-full h-full max-h-[250px]">
+            <div :class=" minPanel ? 'hidden' : 'flex' " class="flex-col mt-32 px-6 w-full h-full max-h-[250px]">
                 {{-- Desktop view --}}
                 <div class="relative flex flex-col bg-[#89C09F] w-full h-full rounded-lg">
                     <div class="absolute z-20">
@@ -298,8 +298,30 @@
                         </button>
                     </a>
                 </div>
-                {{-- Mobile View --}}
-                <div class="text-[#929EAE] flex  items-center">
+            </div>
+            {{-- Mobile View --}}
+            {{-- <div :class=" minPanel ? 'flex relative ' : 'hidden' "
+                class="text-[#929EAE] bg-red-200 py-4 items-center justify-center lg:mt-80">
+                <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm7-3q.525 0 .887-.363q.363-.362.363-.887t-.363-.887Q12.525 15.5 12 15.5t-.887.363q-.363.362-.363.887t.363.887Q11.475 18 12 18Zm1-4.7q.075-.4.263-.7q.187-.3.737-.85q.925-.925 1.25-1.5q.325-.575.325-1.3q0-1.275-.937-2.112Q13.7 6 12.275 6q-1.075 0-1.912.438q-.838.437-1.288 1.162q-.225.35-.125.737q.1.388.45.538q.35.15.688.012q.337-.137.537-.462q.25-.35.675-.538q.425-.187.875-.187q.7 0 1.125.375q.425.375.425.95q0 .475-.287.95q-.288.475-.888 1q-.65.575-1 1.175q-.35.6-.35 1.125q0 .35.263.6q.262.25.637.25q.35 0 .588-.238q.237-.237.312-.587Z" />
+                </svg>
+            </div> --}}
+            <a :class=" minPanel ? '{{ Request::is('/proma-help') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                'relative group hover:text-[#3E6766] text-[#929EAE] hover:font-bold transition duration-300 ease-in-out hover:py-4 py-4 ' }}' : 
+                '{{ Request::is('/proma-help') ? 'bg-[#AAD2BA]/10 relative hidden py-2 pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                : 'relative group hover:text-[#3E6766] hover:font-bold hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out hidden font-semibold text-sm hover:py-2 py-4 pr-3 rounded-r-full' }}' "
+                class="mt-80 " href="">
+                <div
+                    :class=" minPanel ? '{{ Request::is('/proma-help') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        'bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
+                        '{{ Request::is('/proma-help') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
+                </div>
+                <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
+                    class="flex items-center w-full ">
                     <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                         preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -307,11 +329,10 @@
                             d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm7-3q.525 0 .887-.363q.363-.362.363-.887t-.363-.887Q12.525 15.5 12 15.5t-.887.363q-.363.362-.363.887t.363.887Q11.475 18 12 18Zm1-4.7q.075-.4.263-.7q.187-.3.737-.85q.925-.925 1.25-1.5q.325-.575.325-1.3q0-1.275-.937-2.112Q13.7 6 12.275 6q-1.075 0-1.912.438q-.838.437-1.288 1.162q-.225.35-.125.737q.1.388.45.538q.35.15.688.012q.337-.137.537-.462q.25-.35.675-.538q.425-.187.875-.187q.7 0 1.125.375q.425.375.425.95q0 .475-.287.95q-.288.475-.888 1q-.65.575-1 1.175q-.35.6-.35 1.125q0 .35.263.6q.262.25.637.25q.35 0 .588-.238q.237-.237.312-.587Z" />
                     </svg>
                 </div>
-            </div>
+            </a>
         </nav>
         {{-- Right --}}
         @yield('proma-base')
-        <span x-text="minPanel"></span>
         {{-- <div class="transition-all duration-500 ease-linear h-20"
             :class="minPanel ? 'w-8 bg-blue-200' : 'w-40 bg-red-200' ">
         </div> --}}
