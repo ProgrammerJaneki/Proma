@@ -1,0 +1,11 @@
+<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Proma-menu">
+<g id="line-full">
+<rect id="middle" y="11" width="30" height="4" rx="2" fill="#1B212D"/>
+</g>
+<g id="line-half">
+<rect id="bottom" x="15" y="17" width="15" height="4" rx="2" fill="#1B212D"/>
+<rect id="top" y="5" width="15" height="4" rx="2" fill="#1B212D"/>
+</g>
+</g>
+</svg>
