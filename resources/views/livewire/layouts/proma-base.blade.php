@@ -2,29 +2,17 @@
 @section('content')
 
 {{-- Proma Layout --}}
-<div class="bg-white flex w-full">
-    <section x-data="{ minPanel: false }" class="bg-[#FAFAFA] flex w-full max-w-[1440px] shadow-lg">
+<div class="bg-white flex justify-center w-full">
+    <section x-data="{ minPanel: false }"
+        class="text-[#1B212D] flex w-full max-w-[1440px] h-full max-h-[900px] shadow-lg">
         {{-- Left Panel --}}
-        <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[250px]' "
-            class="bg-white flex flex-col py-6 w-full  h-[900px] transition-all duration-500 ease-linear">
+        <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[250px] ' "
+            class="bg-white flex flex-col w-full  min-h-[900px] transition-all duration-300 py-6 ease-linear">
             {{-- Header --}}
-            <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-between px-6' "
+            <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-between px-6 ' "
                 class="w-full h-full md:max-h-[25px] ">
                 <img :class=" minPanel ? 'hidden' : 'flex' " class="w-[70px] h-[20px]"
                     src="{{ asset('images/proma-logo.png') }}" alt="">
-                {{-- <svg class="fill-[#1B212D] cursor-pointer" @click='minPanel = !minPanel' width="40" height="27"
-                    viewBox="0 0 40 27" fill="none" <g id="Proma-menu">
-                    <g class="" id="line-full">
-                        <rect id="middle" x="5" y="11" width="30" height="4" rx="2" />
-                    </g>
-                    <g class="" id="line-half">
-                        <rect class="transition-all duration-500 ease-in-out" id="bottom" x="20" y="17" width="15"
-                            height="4" rx="2" />
-                        <rect class=" transition-all duration-500 ease-in-out" id="top" x="5" y="5" width="15"
-                            height="4" rx="2" />
-                    </g>
-                    </g>
-                </svg> --}}
                 <svg class="group fill-[#1B212D] cursor-pointer " @click='minPanel = !minPanel' width="30" height="27"
                     viewBox="0 0 30 27" fill="none">
                     <g id="Proma-menu">
@@ -60,7 +48,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -93,7 +81,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
                             <path fill="currentColor"
@@ -126,7 +114,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                             <circle cx="20.288" cy="8.344" r="1.707" fill="currentColor" />
@@ -160,7 +148,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
                             <path fill="currentColor"
@@ -193,7 +181,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="-2 -2.5 24 24">
                             <path fill="currentColor"
@@ -226,7 +214,7 @@
                     </div>
                     <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : 'pl-6 gap-2' "
                         class="flex items-center w-full ">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
                             <path fill="currentColor"
@@ -261,31 +249,24 @@
                             xmlns="http://www.w3.org/2000/svg">
                             <circle id="Ellipse 22" cx="77" cy="77" r="77" fill="currentColor" />
                         </svg>
-
                     </div>
                     {{-- Upper --}}
                     <div class="absolute -top-7 flex items-center justify-center w-full ">
                         <div class="bg-white flex items-center justify-center w-16 h-16 rounded-full ">
                             <div class="flex bg-[#AAD2BA] p-2 rounded-full">
-                                <svg class="text-[#1B212D] w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                <svg class=" w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                     <path fill="currentColor"
                                         d="M13 22h-3v-3h3v3Zm0-5h-3v-.007c0-1.65 0-3.075.672-4.073a6.304 6.304 0 0 1 1.913-1.62c.334-.214.649-.417.914-.628a3.712 3.712 0 0 0 1.332-3.824A3.033 3.033 0 0 0 9 8H6a6 6 0 0 1 6-6a6.04 6.04 0 0 1 5.434 3.366a6.017 6.017 0 0 1-.934 6.3c-.453.502-.96.95-1.514 1.337a7.248 7.248 0 0 0-1.316 1.167A4.23 4.23 0 0 0 13 17Z" />
                                 </svg>
                             </div>
-                            {{-- <svg class="text-[#AAD2BA] bg-black rounded-full w-8 h-8"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10s10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459c-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174c.195-.195.437-.393.691-.599c.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 0 0-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z" />
-                            </svg> --}}
                         </div>
                     </div>
                     {{-- Middle --}}
-                    <div class="flex flex-col text-center items-center mt-14 lg:mt-20">
+                    <div class=" flex flex-col text-center items-center mt-14 lg:mt-20">
                         <h1 class="font-bold text-lg">Help Center</h1>
-                        <h4 class="font-medium text-xs text-[#3a4252]">Having trouble using Proma? <br> Check the help
+                        <h4 class="font-medium text-xs ">Having trouble using Proma? <br> Check the help
                             center for more
                             details.</h4>
                     </div>
@@ -300,15 +281,6 @@
                 </div>
             </div>
             {{-- Mobile View --}}
-            {{-- <div :class=" minPanel ? 'flex relative ' : 'hidden' "
-                class="text-[#929EAE] bg-red-200 py-4 items-center justify-center lg:mt-80">
-                <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm7-3q.525 0 .887-.363q.363-.362.363-.887t-.363-.887Q12.525 15.5 12 15.5t-.887.363q-.363.362-.363.887t.363.887Q11.475 18 12 18Zm1-4.7q.075-.4.263-.7q.187-.3.737-.85q.925-.925 1.25-1.5q.325-.575.325-1.3q0-1.275-.937-2.112Q13.7 6 12.275 6q-1.075 0-1.912.438q-.838.437-1.288 1.162q-.225.35-.125.737q.1.388.45.538q.35.15.688.012q.337-.137.537-.462q.25-.35.675-.538q.425-.187.875-.187q.7 0 1.125.375q.425.375.425.95q0 .475-.287.95q-.288.475-.888 1q-.65.575-1 1.175q-.35.6-.35 1.125q0 .35.263.6q.262.25.637.25q.35 0 .588-.238q.237-.237.312-.587Z" />
-                </svg>
-            </div> --}}
             <a :class=" minPanel ? '{{ Request::is('/proma-help') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] text-[#929EAE] hover:font-bold transition duration-300 ease-in-out hover:py-4 py-4 ' }}' : 
                 '{{ Request::is('/proma-help') ? 'bg-[#AAD2BA]/10 relative hidden py-2 pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
@@ -332,10 +304,12 @@
             </a>
         </nav>
         {{-- Right --}}
-        @yield('proma-base')
-        {{-- <div class="transition-all duration-500 ease-linear h-20"
-            :class="minPanel ? 'w-8 bg-blue-200' : 'w-40 bg-red-200' ">
-        </div> --}}
+        <div class="w-full h-full max-h-[900px]">
+            {{-- Header --}}
+            <livewire:layouts.proma-main-header />
+            {{-- Body --}}
+            @yield('proma-base')
+        </div>
     </section>
 </div>
 
