@@ -1,4 +1,4 @@
-<div :class=" detailedMessage || detailedMessage2 ? 'w-full max-w-[331px] md:max-w-none' : 'w-full max-w-[330px]' "
+<div :class=" detailedMessage || detailedMessage2 ? 'w-full max-w-[330px] md:max-w-none' : 'w-full max-w-[330px]' "
     class="flex flex-col gap-5 transition-all duration-300 ease-linear">
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
@@ -134,15 +134,12 @@
                     {{-- <div class="bg-green-200 w-10 h-10 rounded-full"></div> --}}
                     <div class="text-xs flex flex-col whitespace-nowrap max-w-[200px]">
                         <h4>Thomas</h4>
-                        <span class="font-semibold truncate">yung mismong pushm .map, .filter lang talaga error e</span>
+                        <span class="font-semibold truncate">yung mismong push .map, .filter lang talaga error e</span>
                     </div>
                 </div>
-                <div class="text-xs flex whitespace-nowrap ">2:00 pm</div>
+                <div class="text-xs flex whitespace-nowrap ">7:00 pm</div>
             </div>
         </div>
-        {{-- <button
-            @click="detailedMessage2 = !detailedMessage2; detailedMessage ? detailedMessage = !detailedMessage2 : detailedMessage ">click</button>
-        --}}
         {{-- 2 --}}
         <div :class=" detailedMessage2 ? 'h-[350px]' : 'h-[80px] w-full max-w-[330px]' "
             class="bg-white overflow-hidden flex flex-col py-4 px-2 r transition-all duration-300 ease-linear rounded-xl shadow-lg  ">

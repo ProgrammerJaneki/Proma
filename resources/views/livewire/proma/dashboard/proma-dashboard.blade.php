@@ -7,8 +7,8 @@
         <div x-data="{ detailedMessage : false }" :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10' "
             class="flex flex-col w-full max-w-[700px]">
             {{-- Welcome Div --}}
-            <div :class=" detailedMessage || detailedMessage2 ? 'bg-red-200 h-0 w-0' : '' " class="bg-[#89C09F] relative flex justify-between items-center gap-4 px-6 rounded-xl 
-                transition-all duration-300 ease-linear overflow-hidden w-full max-w-[700px] h-[227px]">
+            <div :class=" detailedMessage || detailedMessage2 ? 'w-0 h-0' : 'h-[227px] max-h-[227px]' " class="bg-[#89C09F] relative flex justify-between items-center gap-4 px-6 rounded-xl 
+                transition-all duration-300 ease-linear overflow-hidden w-full max-w-[700px] ">
 
                 {{-- Top Circle--}}
                 <div
@@ -162,10 +162,11 @@
                     </div>
                 </div>
                 {{-- Messages and Clients --}}
-                <div class="flex w-full">
+                <div :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10' " class="flex w-full">
                     {{-- Messages --}}
                     <livewire:proma.dashboard.messages />
                     {{-- Clients --}}
+                    <livewire:proma.dashboard.clients />
                 </div>
             </div>
         </div>
