@@ -166,13 +166,110 @@
                     {{-- Messages --}}
                     <livewire:proma.dashboard.messages />
                     {{-- Clients --}}
-                    <livewire:proma.dashboard.clients />
+                    <livewire:proma.dashboard.teams />
                 </div>
             </div>
         </div>
         {{-- Right --}}
-        <div class="bg-red-50 flex flex-col w-full max-w-[343px] ">
-            Right
+        <div class="bg-white max-h-[750px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
+            {{-- calendar --}}
+            <livewire:proma.dashboard.calendar />
+            {{-- Activity --}}
+            <div class="flex flex-col gap-y-4 w-full overflow-hidden">
+                {{-- Header --}}
+                <div class="flex items-center justify-between w-full">
+                    <h2 class="font-bold text-base">My Activities</h2>
+                    <svg class=" text-[#929EAE] hover:text-[#3E6766] w-4 h-4 cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                        role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                        <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
+                    </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                    {{-- 1 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-l-big.png') }}" alt="">
+                        {{-- <div class="bg-red-200 w-12 h-12 rounded-full"></div> --}}
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Landing Page</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 30, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 2 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-p.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Profile Account Design</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 27, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 3 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-e-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">E-Commerce Payment Section</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 24, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 4 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-a-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Admin Portal Design</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 20, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 5 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-c-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Crypto.io Landing Page</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 13, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 1 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-l-big.png') }}" alt="">
+                        {{-- <div class="bg-red-200 w-12 h-12 rounded-full"></div> --}}
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Landing Page</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 30, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 2 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-p.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Profile Account Design</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 27, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 3 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-e-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">E-Commerce Payment Section</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 24, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 4 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-a-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Admin Portal Design</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 20, 2022</span>
+                        </div>
+                    </div>
+                    {{-- 5 --}}
+                    <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
+                        <img src="{{ asset('images/dashboard/project-c-big.png') }}" alt="">
+                        <div class="flex flex-col">
+                            <h2 class="font-semibold text-sm">Crypto.io Landing Page</h2>
+                            <span class="font-medium text-xs text-[#929EAE]">July 13, 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

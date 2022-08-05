@@ -306,7 +306,7 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div class="w-full h-full max-h-[900px]">
+        <div class="w-full h-full max-h-[900px] overflow-hidden ">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

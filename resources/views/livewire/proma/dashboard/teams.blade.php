@@ -1,5 +1,5 @@
-<div :class=" detailedMessage || detailedMessage2 ? 'overflow-hidden w-0 h-0' : 'flex' "
-    class="flex-col gap-4 w-full  transition-none duration-300 ease-linear">
+<div :class=" detailedMessage || detailedMessage2 ? 'overflow-hidden h-0 w-0 ' : 'flex' "
+    class="flex-col gap-4 w-full  transition-all duration-300 ease-linear">
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
         <h2 class="font-bold text-sm">Teams</h2>
@@ -15,7 +15,7 @@
             {{-- Header --}}
             <div class="flex justify-between items-color w-full">
                 <img class="w-9 h-9" src="{{ asset('images/dashboard/clients/team-uu.png') }}" alt="">
-                <svg class=" w-5 h-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                <svg class="hover:text-[#3E6766] w-5 h-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -41,7 +41,7 @@
             {{-- Header --}}
             <div class="flex justify-between items-color w-full">
                 <img class="w-9 h-9" src="{{ asset('images/dashboard/clients/team-d.png') }}" alt="">
-                <svg class=" w-5 h-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                <svg class="hover:text-[#3E6766] w-5 h-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
