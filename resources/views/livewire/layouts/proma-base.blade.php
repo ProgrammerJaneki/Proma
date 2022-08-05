@@ -11,8 +11,10 @@
             {{-- Header --}}
             <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-between px-6 ' "
                 class="w-full h-full md:max-h-[25px] ">
-                <img :class=" minPanel ? 'hidden' : 'flex' " class="w-[70px] h-[20px]"
-                    src="{{ asset('images/proma-logo.png') }}" alt="">
+                <a href="">
+                    <img :class=" minPanel ? 'hidden' : 'flex' " class="w-[70px] h-[20px]"
+                        src="{{ asset('images/proma-logo.png') }}" alt="">
+                </a>
                 <svg class="group fill-[#1B212D] cursor-pointer " @click='minPanel = !minPanel' width="30" height="27"
                     viewBox="0 0 30 27" fill="none">
                     <g id="Proma-menu">
@@ -285,7 +287,7 @@
                 'relative group hover:text-[#3E6766] text-[#929EAE] hover:font-bold transition duration-300 ease-in-out hover:py-4 py-4 ' }}' : 
                 '{{ Request::is('/proma-help') ? 'bg-[#AAD2BA]/10 relative hidden py-2 pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out hidden font-semibold text-sm hover:py-2 py-4 pr-3 rounded-r-full' }}' "
-                class="mt-80 " href="">
+                class="mt-0 " href="">
                 <div
                     :class=" minPanel ? '{{ Request::is('/proma-help') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 

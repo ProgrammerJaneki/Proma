@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::view('/', 'livewire/proma/dashboard')->name('proma-dashboard');
+Route::view('/', 'livewire/proma/dashboard.proma-dashboard')->name('proma-dashboard');
 
 // Route::get('/', function () {
 //     return view('welcome');
