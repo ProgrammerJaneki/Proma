@@ -1,4 +1,4 @@
-<div class="border-b-2 border-[#F5F5F5] flex flex-col pb-4 gap-y-2 w-full">
+<div class=" border-b-2 border-[#FFFFFF] flex flex-col pb-4 gap-y-2 w-full">
     {{-- Header --}}
     <div class="flex items-center justify-between w-full">
         <h1 class="font-bold text-lg">Calendar</h1>

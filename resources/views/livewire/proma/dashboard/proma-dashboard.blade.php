@@ -164,7 +164,7 @@
                 </div>
                 {{-- Messages and Clients --}}
                 <div :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-4 sm:gap-10' "
-                    class="grid place-items-center sm:flex flex-col sm:flex-row w-full">
+                    class="place-items-center md:place-items-stretch flex flex-col md:flex-row w-full">
                     {{-- Messages --}}
                     <livewire:proma.dashboard.messages />
                     {{-- Clients --}}
@@ -176,7 +176,7 @@
         {{-- <div class="flex w-full"> --}}
 
             <div x-data="{ hideCalendar : false }"
-                class="max-h-[720px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
+                class="bg-white max-h-[720px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
                 {{-- calendar --}}
                 <livewire:proma.dashboard.calendar />
                 {{-- Activity --}}

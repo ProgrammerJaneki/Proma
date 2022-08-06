@@ -41,7 +41,7 @@
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
                 '{{ Request::is('/') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
-                    href="">
+                    href="{{ route('proma-dashboard') }}">
                     {{-- Left Indicator --}}
                     <div
                         :class=" minPanel ? '{{ Request::is('/') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
@@ -74,16 +74,16 @@
                     </button>
                 </a>
                 {{-- Project --}}
-                <a :class=" minPanel ? '{{ Request::is('/proma-projects') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-projects') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('/proma-projects') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-projects') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
-                    href="">
+                    href="{{ route('proma-projects') }}">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('/proma-projects') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-projects') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('/proma-projects') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-projects') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -100,8 +100,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('/proma-projects') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('/proma-projects') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-projects') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-projects') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -111,16 +111,16 @@
                     </button>
                 </a>
                 {{-- Teams --}}
-                <a :class=" minPanel ? '{{ Request::is('/proma-teams') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-teams') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('/proma-teams') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-teams') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
                     href="">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('/proma-teams') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-teams') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('/proma-teams') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-teams') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -138,8 +138,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('/proma-teams') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('/proma-teams') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-teams') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-teams') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -149,16 +149,16 @@
                     </button>
                 </a>
                 {{-- Clients --}}
-                <a :class=" minPanel ? '{{ Request::is('/proma-clients') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-clients') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('/proma-clients') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-clients') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
                     href="">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('/proma-clients') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-clients') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('/proma-clients') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-clients') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -175,8 +175,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('/proma-clients') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('/proma-clients') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-clients') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-clients') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -186,16 +186,16 @@
                     </button>
                 </a>
                 {{-- Messages --}}
-                <a :class=" minPanel ? '{{ Request::is('/proma-messages') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-messages') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('/proma-messages') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-messages') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
                     href="">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('/proma-messages') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-messages') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('/proma-messages') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-messages') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -212,8 +212,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('/proma-messages') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('/proma-messages') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-messages') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-messages') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -223,16 +223,16 @@
                     </button>
                 </a>
                 {{-- Settings --}}
-                <a :class=" minPanel ? '{{ Request::is('/proma-settings') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-settings') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('/proma-settings') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-settings') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
                     href="">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('/proma-settings') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-settings') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('/proma-settings') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-settings') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -249,8 +249,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('/proma-settings') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('/proma-settings') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-settings') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-settings') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -331,7 +331,7 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div class="w-full h-full max-h-[950px] overflow-y-auto ">
+        <div class="w-full h-full max-h-[950px] overflow-y-none ">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

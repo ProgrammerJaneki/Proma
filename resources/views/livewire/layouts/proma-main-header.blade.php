@@ -103,12 +103,12 @@
             </div>
             {{-- Links --}}
             <div :class=" dropDown ? 'flex' : 'hidden' "
-                class="bg-[#FFFFFF] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-2 shadow-lg rounded-lg">
+                class="bg-[#FFFFFF] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 shadow-xl rounded-lg">
                 <div class="flex justify-between w-full">
                     <div class="font-bold text-[#929EAE] flex flex-col gap-y-2">
                         <a class="hover:text-[#3E6766]" href="">Profile</a>
                         <a class="hover:text-[#3E6766]" href="/">Dashboard</a>
-                        <a class="hover:text-[#3E6766]" href="/proma-projects">Projects</a>
+                        <a class="hover:text-[#3E6766]" href="{{ route('proma-projects') }}">Projects</a>
                         <a class="hover:text-[#3E6766]" href="/proma-teams">Teams</a>
                         <a class="hover:text-[#3E6766]" href="/proma-clients">Clients</a>
                         <a class="hover:text-[#3E6766]" href="/proma-messages">Messages</a>
