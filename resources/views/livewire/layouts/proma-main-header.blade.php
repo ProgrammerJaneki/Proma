@@ -4,8 +4,9 @@
         <a :class=" minPanel ? 'flex' : 'hidden' " class="w-full max-w-[54px] py-3" href="">
             <img class="" src="{{ asset('images/mini-logo.png') }}" alt="proma">
         </a>
+        {{-- Desktop Search Bar View --}}
         <div
-            class="group group-active:text-[#3E6766] focus-within:text-[#3E6766] focus-within:bg-[#AAD2BA]/10 py-2 px-4 rounded-full font-semibold text-[#929EAE] text-lg flex items-center gap-3 w-full max-w-[300px]">
+            class="hidden md:flex items-center group group-active:text-[#3E6766] focus-within:text-[#3E6766] focus-within:bg-[#AAD2BA]/10 py-2 px-4 rounded-full font-semibold text-[#929EAE] text-lg gap-3 w-full max-w-[300px]">
             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
@@ -18,6 +19,14 @@
                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                 <path fill="currentColor"
                     d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+            </svg>
+        </div>
+        {{-- Mobile Search View --}}
+        <div class="text-[#929EAE] hover:text-[#3E6766] flex md:hidden items-center">
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                    d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z" />
             </svg>
         </div>
         {{-- Right --}}
@@ -76,4 +85,6 @@
             </div>
         </div>
     </div>
+    {{-- Secondary Header --}}
+    <livewire:layouts.proma-secondary-header />
 </div>

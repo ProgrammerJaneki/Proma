@@ -206,7 +206,7 @@
                                 alt="">
                             {{-- <div class="bg-blue-400 w-7 h-7 rounded-full"></div> --}}
                             <label class="bg-[#AAD2BA]/10 flex items-center p-2 rounded-lg font-medium text-sm">
-                                <span>Marie sent a photo</span>
+                                <span>I just merged the two branches</span>
                             </label>
                         </div>
                         {{-- 2 --}}

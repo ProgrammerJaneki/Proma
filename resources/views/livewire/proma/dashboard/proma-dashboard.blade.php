@@ -2,12 +2,12 @@
 @section('proma-base')
 
 <div class="bg-[#FAFAFA] flex p-10 w-full h-full">
-    <div x-data="{ detailedMessage2 : false }" class="flex justify-center gap-10 w-full">
+    <div x-data="{ detailedMessage2 : false }" class="flex justify-center gap-10 xl:gap-16 w-full">
         {{-- Left --}}
         <div x-data="{ detailedMessage : false }" :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10' "
             class="flex flex-col w-full max-w-[700px]">
             {{-- Welcome Div --}}
-            <div :class=" detailedMessage || detailedMessage2 ? 'w-0 h-0' : 'h-[227px] max-h-[227px]' " class="bg-[#89C09F] relative flex justify-between items-center gap-4 px-6 rounded-xl 
+            <div :class=" detailedMessage || detailedMessage2 ? 'w-0 h-0' : 'h-[227px] max-h-[227px]' " class="bg-[#89C09F] relative hidden  md:flex justify-between items-center gap-4 px-6 rounded-xl 
                 transition-all duration-300 ease-linear overflow-hidden w-full max-w-[700px] ">
 
                 {{-- Top Circle--}}
@@ -171,7 +171,8 @@
             </div>
         </div>
         {{-- Right --}}
-        <div class="bg-white max-h-[750px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
+        <div x-data="{ hideCalendar : false }"
+            class="bg-white max-h-[720px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
             {{-- calendar --}}
             <livewire:proma.dashboard.calendar />
             {{-- Activity --}}
@@ -227,7 +228,7 @@
                             <span class="font-medium text-xs text-[#929EAE]">July 13, 2022</span>
                         </div>
                     </div>
-                    {{-- 1 --}}
+                    {{-- 6 --}}
                     <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
                         <img src="{{ asset('images/dashboard/project-l-big.png') }}" alt="">
                         {{-- <div class="bg-red-200 w-12 h-12 rounded-full"></div> --}}
@@ -236,7 +237,7 @@
                             <span class="font-medium text-xs text-[#929EAE]">July 30, 2022</span>
                         </div>
                     </div>
-                    {{-- 2 --}}
+                    {{-- 7 --}}
                     <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
                         <img src="{{ asset('images/dashboard/project-p.png') }}" alt="">
                         <div class="flex flex-col">
@@ -244,7 +245,7 @@
                             <span class="font-medium text-xs text-[#929EAE]">July 27, 2022</span>
                         </div>
                     </div>
-                    {{-- 3 --}}
+                    {{-- 8 --}}
                     <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
                         <img src="{{ asset('images/dashboard/project-e-big.png') }}" alt="">
                         <div class="flex flex-col">
@@ -252,7 +253,7 @@
                             <span class="font-medium text-xs text-[#929EAE]">July 24, 2022</span>
                         </div>
                     </div>
-                    {{-- 4 --}}
+                    {{-- 9 --}}
                     <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
                         <img src="{{ asset('images/dashboard/project-a-big.png') }}" alt="">
                         <div class="flex flex-col">
@@ -260,7 +261,7 @@
                             <span class="font-medium text-xs text-[#929EAE]">July 20, 2022</span>
                         </div>
                     </div>
-                    {{-- 5 --}}
+                    {{-- 10 --}}
                     <div class="border-b-2 boder-[#F5F5F5] flex items-center pb-2 gap-2 w-full">
                         <img src="{{ asset('images/dashboard/project-c-big.png') }}" alt="">
                         <div class="flex flex-col">
