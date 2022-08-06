@@ -1,10 +1,10 @@
-<div :class=" minPanel ? 'pl-0' : 'pl-4' " class="flex items-center h-12 w-full">
+<div :class=" minPanel ? 'pl-0' : 'pl-0 lg:pl-4' " class="flex items-center h-12 w-full">
     {{-- Dashboard --}}
     <div class="flex items-center justify-between w-full">
         <h1 class="font-bold text-base">Dashboard</h1>
         <div class="flex items-center">
             <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
-                <div class="bg-transparent p-2 rounded-md cursor-pointer">
+                <div class="bg-transparent text-[#929EAE] p-2 rounded-md cursor-pointer">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                         <path fill="currentColor"
