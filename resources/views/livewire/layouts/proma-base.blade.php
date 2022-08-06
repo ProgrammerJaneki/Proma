@@ -3,8 +3,7 @@
 
 {{-- Proma Layout --}}
 <div class="bg-white flex justify-center w-full">
-    <section x-data="{ minPanel: false }"
-        class="text-[#1B212D] flex w-full max-w-[1440px] h-full max-h-[900px] shadow-lg">
+    <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full max-w-[1440px] h-full  shadow-lg">
         {{-- Left Panel --}}
         <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
             class="bg-white hidden md:flex flex-col w-full  min-h-[900px] transition-all duration-300 py-6 ease-linear">
@@ -332,7 +331,7 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div class="w-full h-full max-h-[900px] overflow-hidden ">
+        <div class="w-full h-full max-h-[950px] overflow-y-auto ">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

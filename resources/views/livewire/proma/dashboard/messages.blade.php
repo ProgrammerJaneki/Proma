@@ -1,5 +1,5 @@
 <div :class=" detailedMessage || detailedMessage2 ? 'w-full max-w-[330px] md:max-w-none' : 'w-full max-w-[330px]' "
-    class="flex flex-col gap-5 transition-all duration-300 ease-linear">
+    class="flex flex-col gap-5  transition-all duration-300 ease-linear">
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
         <h2 class="font-bold text-sm">Messages</h2>

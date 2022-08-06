@@ -1,5 +1,5 @@
 <div :class=" detailedMessage || detailedMessage2 ? 'overflow-hidden h-0 w-0 ' : 'flex' "
-    class="flex-col gap-4 w-full  transition-all duration-300 ease-linear">
+    class="flex-col gap-4 w-full max-w-[330px] transition-all duration-300 ease-linear">
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
         <h2 class="font-bold text-sm">Teams</h2>
