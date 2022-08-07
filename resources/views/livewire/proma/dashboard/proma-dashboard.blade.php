@@ -48,7 +48,7 @@
                             </a>
                         </div>
                         {{-- Team Projects --}}
-                        <div class="flex flex-col gap-6 w-full lg:max-w-[330px]">
+                        <div class="flex  flex-col gap-6 w-full lg:max-w-[330px]">
                             {{-- 1 --}}
                             <div
                                 class="bg-white transition duration-300 ease-linear-out cursor-pointer flex items-center justify-between py-4 px-2 rounded-xl shadow-lg w-full">

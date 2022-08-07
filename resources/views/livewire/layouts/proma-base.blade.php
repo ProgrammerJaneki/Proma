@@ -331,7 +331,7 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div class="w-full h-full max-h-[950px] overflow-y-none ">
+        <div x-data="{ tabledProjects : false }" class="w-full h-full max-h-[950px] overflow-y-none ">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}
