@@ -6,7 +6,7 @@
     <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full max-w-[1440px] h-full  shadow-lg">
         {{-- Left Panel --}}
         <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
-            class="bg-white hidden md:flex flex-col w-full  min-h-[900px] transition-all duration-300 py-6 ease-linear">
+            class="bg-white hidden md:flex flex-col w-full  h-[900px] transition-all duration-300 py-6 ease-linear">
             {{-- Header --}}
             <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-center lg:justify-between px-0 lg:px-6 ' "
                 class="w-full h-full md:max-h-[25px] ">
@@ -331,7 +331,8 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div x-data="{ tabledProjects : false }" class="w-full h-full max-h-[950px] overflow-y-none ">
+        <div x-data="{ tabledProjects : false }"
+            class="w-full h-full max-h-[920px] overflow-y-auto md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

@@ -6,7 +6,7 @@
         class="place-items-center flex flex-col md:flex-row justify-center gap-10 xl:gap-16 w-full">
         {{-- Left --}}
         <div x-data="{ detailedMessage : false }" :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10' "
-            class="flex flex-col w-full max-w-[700px]">
+            class="flex flex-col w-full ">
             {{-- Welcome Div --}}
             <div :class=" detailedMessage || detailedMessage2 ? 'w-0 h-0' : 'h-[227px] max-h-[227px]' " class="bg-[#89C09F] relative hidden  md:flex justify-between items-center gap-4 px-6 rounded-xl 
                 transition-all duration-300 ease-linear overflow-hidden w-full max-w-[700px] ">
