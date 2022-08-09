@@ -2,10 +2,10 @@
 @section('proma-base')
 
 
-<div class="bg-[#FAFAFA] flex justify-center p-2 md:p-10 w-full h-full">
+<div x-cloak class="bg-[#FAFAFA] flex justify-center p-2 md:p-10 w-full ">
     <div x-data="{ detailedMessage2 : false }"
         :class=" minPanel ? 'items-center justify-center ' : 'items-center justify-center ' "
-        class="flex flex-col md:flex-row gap-10 xl:gap-16  w-full">
+        class="flex flex-col md:flex-row gap-10 xl:gap-16  w-full h-full">
         {{-- Left --}}
         <div x-data="{ detailedMessage : false }"
             :class="[(detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10'), (minPanel ? 'w-auto ' : 'w-full md:w-[715px]'  ) ] "

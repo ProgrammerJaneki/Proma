@@ -1,5 +1,6 @@
 <div x-data="{dropDown : false}" class="px-2 sm:pl-6 sm:pr-10 w-full">
-    <div x-data="{ darkMode: false }" class=" flex items-center border-b-2 border-[#F5F5F5] py-4 justify-between">
+    <div x-data="{ darkMode: false }"
+        class="bg-white flex items-center border-b-2 border-[#F5F5F5] py-4 justify-between">
         {{-- Left || 54px --}}
         <a :class=" minPanel ? 'flex' : 'flex lg:hidden' " class="w-full max-w-[70px] py-3" href="">
             <img class="w-[70px] h-[20px]" src="{{ asset('images/proma-logo.png') }}" alt="proma">

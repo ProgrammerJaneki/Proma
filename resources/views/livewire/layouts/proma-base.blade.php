@@ -3,7 +3,7 @@
 
 
 {{-- Proma Layout --}}
-<div class="bg-white flex justify-center w-full">
+<div class="bg-white flex justify-center w-full h-screen">
     <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full h-full  ">
         {{-- Left Panel --}}
         <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
@@ -335,7 +335,7 @@
         </nav>
         {{-- Right --}}
         <div x-data="{ tabledProjects : false }"
-            class="w-full h-full overflow-y-auto md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            class="w-full h-screen  scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

@@ -3,10 +3,10 @@
 
 
 <div x-cloak :class="[(minPanel ? 'px-2 md:px-6' : 'px-6 lg:px-10'), (tabledProjects ? 'py-0 ' : 'py-5 ')] "
-    class="bg-[#FAFAFA] flex justify-center h-[780px]  w-full transition-all duration-300 ease-linear overflow-hidden">
+    class="bg-[#FAFAFA] flex justify-center h-full  w-full transition-all duration-300 ease-linear ">
     {{-- Floating View --}}
-    <div x-cloak x-data="{ enableScroll : false }" :class=" tabledProjects ? 'h-0 w-0 ' : 'max-h-[720px] w-[1130px] ' "
-        class="flex gap-y-8   transition-all duration-300 ease-linear overflow-hidden">
+    <div x-cloak x-data="{ enableScroll : false }" :class=" tabledProjects ? 'hidden ' : 'flex ' "
+        class="flex gap-y-8   transition-all duration-300 ease-linear overflow-x-auto max-w-[1130px] max-h-[720px]">
         <div class="flex flex-col gap-8 md:gap-y-6 w-full h-full transition-all duration-300 ease-linear">
             {{-- Top --}}
             <div class="flex flex-col gap-y-3 w-full">
@@ -713,8 +713,8 @@
     </div>
 
     {{-- Table View --}}
-    <div x-cloak :class=" tabledProjects ? ' overflow-y-auto w-[1130px] max-h-[720px]' : 'h-0 w-0 overflow-hidden' "
-        class="flex transition-all duration-300 py-5 ease-linear  ">
+    <div x-cloak :class=" tabledProjects ? ' overflow-y-auto flex' : 'hidden overflow-hidden' "
+        class="flex transition-all duration-300 py-5 ease-linear w-full max-w-[1000px] max-h-[720px]">
         {{-- <div class="bg-blue-400 w-full">HELLO</div> --}}
         <div
             class="flex overflow-auto md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 max-h-full w-full">
