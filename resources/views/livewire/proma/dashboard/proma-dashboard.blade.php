@@ -1,12 +1,15 @@
 @extends('livewire.layouts.proma-base')
 @section('proma-base')
 
+
 <div class="bg-[#FAFAFA] flex justify-center p-2 md:p-10 w-full h-full">
     <div x-data="{ detailedMessage2 : false }"
-        class="place-items-center flex flex-col md:flex-row justify-center gap-10 xl:gap-16 w-full">
+        :class=" minPanel ? 'items-center justify-center ' : 'items-center justify-center ' "
+        class="flex flex-col md:flex-row gap-10 xl:gap-16  w-full">
         {{-- Left --}}
-        <div x-data="{ detailedMessage : false }" :class=" detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10' "
-            class="flex flex-col w-full ">
+        <div x-data="{ detailedMessage : false }"
+            :class="[(detailedMessage || detailedMessage2 ? 'gap-0' : 'gap-10'), (minPanel ? 'w-auto ' : 'w-full md:w-[715px]'  ) ] "
+            class="flex flex-col ">
             {{-- Welcome Div --}}
             <div :class=" detailedMessage || detailedMessage2 ? 'w-0 h-0' : 'h-[227px] max-h-[227px]' " class="bg-[#89C09F] relative hidden  md:flex justify-between items-center gap-4 px-6 rounded-xl 
                 transition-all duration-300 ease-linear overflow-hidden w-full max-w-[700px] ">
@@ -43,7 +46,7 @@
                         {{-- Header --}}
                         <div class="flex items-center justify-between w-full">
                             <h2 class="font-bold text-sm">Team Projects</h2>
-                            <a href="" class="font-bold text-[#3E6766] text-xs">
+                            <a href="{{ route('proma-projects') }}" class="font-bold text-[#3E6766] text-xs">
                                 <span>View All</span>
                             </a>
                         </div>
@@ -175,7 +178,7 @@
         {{-- Right --}}
         {{-- <div class="flex w-full"> --}}
 
-            <div x-data="{ hideCalendar : false }"
+            <div x-data="{ hideCalendar : false }" :class=" minPanel ? 'mr-16' : 'mr-0' "
                 class="bg-white max-h-[720px] flex flex-col gap-6 w-full max-w-[343px] shadow-lg p-2 md:p-4 rounded-xl">
                 {{-- calendar --}}
                 <livewire:proma.dashboard.calendar />

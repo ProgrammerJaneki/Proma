@@ -3,7 +3,7 @@
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
         <h2 class="font-bold text-sm">Teams</h2>
-        <a href="" class="font-bold text-[#3E6766] text-xs">
+        <a href="{{ route('proma-teams') }}" class="font-bold text-[#3E6766] text-xs">
             <span>View All</span>
         </a>
     </div>
@@ -30,7 +30,7 @@
             <div class="font-bold text-lg flex flex-col">
                 <h1>UI/UX</h1>
                 <h1>Team</h1>
-                <span class="font-medium text-[#3E6766] text-xs">
+                <span class="font-medium text-[#3E6766] text-xs whitespace-nowrap">
                     August 1, 2022
                 </span>
             </div>
@@ -56,7 +56,7 @@
             <div class="font-bold text-lg flex flex-col">
                 <h1>Design</h1>
                 <h1>Team</h1>
-                <span class="font-medium text-[#3E6766] text-xs">
+                <span class="font-medium text-[#3E6766] text-xs whitespace-nowrap">
                     July 10, 2022
                 </span>
             </div>

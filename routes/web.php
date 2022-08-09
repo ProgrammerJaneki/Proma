@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'livewire/proma/dashboard/proma-dashboard')->name('proma-dashboard');
 Route::view('/proma-projects', 'livewire/proma/projects/proma-projects')->name('proma-projects');
+Route::view('/proma-teams', 'livewire/proma/teams/proma-teams')->name('proma-teams');
 
 // Route::get('/', function () {
 //     return view('welcome');

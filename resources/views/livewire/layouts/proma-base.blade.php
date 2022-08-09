@@ -1,9 +1,10 @@
 @extends('livewire.layouts.base')
 @section('content')
 
+
 {{-- Proma Layout --}}
 <div class="bg-white flex justify-center w-full">
-    <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full max-w-[1440px] h-full  shadow-lg">
+    <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full h-full  ">
         {{-- Left Panel --}}
         <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
             class="bg-white hidden md:flex flex-col w-full  h-[900px] transition-all duration-300 py-6 ease-linear">
@@ -115,7 +116,7 @@
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
                 '{{ Request::is('proma-teams') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
-                    href="">
+                    href="{{ route('proma-teams') }}">
                     {{-- Left Indicator --}}
                     <div
                         :class=" minPanel ? '{{ Request::is('proma-teams') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
@@ -149,7 +150,8 @@
                     </button>
                 </a>
                 {{-- Clients --}}
-                <a :class=" minPanel ? '{{ Request::is('proma-clients') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a class="hidden"
+                    :class=" minPanel ? '{{ Request::is('proma-clients') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
                 '{{ Request::is('proma-clients') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
@@ -261,8 +263,8 @@
                 </a>
             </div>
             {{-- Bottom | Help Center --}}
-            <div :class=" minPanel ? 'hidden' : 'hidden lg:flex' "
-                class="flex-col mt-32 px-6 w-full h-full max-h-[250px]">
+            <div x-cloak :class=" minPanel ? 'hidden' : 'hidden lg:flex' "
+                class="flex-col mt-48 px-6 w-full h-full max-h-[250px]">
                 {{-- Desktop view --}}
                 <div class="relative flex flex-col bg-[#89C09F] w-full h-full rounded-lg">
                     <div class="absolute z-20">
@@ -308,7 +310,8 @@
                 </div>
             </div>
             {{-- Mobile View --}}
-            <a :class=" minPanel ? '{{ Request::is('/proma-help') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+            <a x-cloak
+                :class=" minPanel ? '{{ Request::is('/proma-help') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] text-[#929EAE] hover:font-bold transition duration-300 ease-in-out hover:py-4 py-4 ' }}' : 
                 '{{ Request::is('/proma-help') ? ' relative flex lg:hidden py-4 pr-0 md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] text-[#929EAE] hover:font-bold transition duration-300 ease-in-out flex lg:hidden font-semibold text-sm py-4 ' }}' "
@@ -332,7 +335,7 @@
         </nav>
         {{-- Right --}}
         <div x-data="{ tabledProjects : false }"
-            class="w-full h-full max-h-[920px] overflow-y-auto md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            class="w-full h-full overflow-y-auto md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

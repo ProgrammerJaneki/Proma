@@ -2,17 +2,17 @@
 @section('proma-base')
 
 
-<div :class="[(minPanel ? 'px-2 md:px-6' : 'px-6 lg:px-10'), (tabledProjects ? 'py-0 ' : 'py-5 ')] "
-    class="bg-[#FAFAFA] flex flex-col h-full  w-full transition-all duration-300 ease-linear overflow-hidden">
+<div x-cloak :class="[(minPanel ? 'px-2 md:px-6' : 'px-6 lg:px-10'), (tabledProjects ? 'py-0 ' : 'py-5 ')] "
+    class="bg-[#FAFAFA] flex justify-center h-[780px]  w-full transition-all duration-300 ease-linear overflow-hidden">
     {{-- Floating View --}}
-    <div x-data="{ enableScroll : false }" :class=" tabledProjects ? 'h-0 w-0 ' : 'h-[720px] ' "
-        class="flex gap-y-8 transition-all duration-300 ease-linear overflow-hidden">
+    <div x-cloak x-data="{ enableScroll : false }" :class=" tabledProjects ? 'h-0 w-0 ' : 'max-h-[720px] w-[1130px] ' "
+        class="flex gap-y-8   transition-all duration-300 ease-linear overflow-hidden">
         <div class="flex flex-col gap-8 md:gap-y-6 w-full h-full transition-all duration-300 ease-linear">
             {{-- Top --}}
             <div class="flex flex-col gap-y-3 w-full">
                 {{-- Header --}}
                 <div class="font-bold text-sm flex items-center justify-between lg:pr-10 w-full">
-                    <h2 class="">From the past 7 days</h2>
+                    <h2 class="">From the last 7 days</h2>
                     <button class="text-[#3E6766]">
                         <span>View All</span>
                     </button>
@@ -276,7 +276,7 @@
                                             <span>56%</span>
                                         </div>
                                         <div class="w-full bg-[#F5F5F5] rounded-full ">
-                                            <div class="bg-[#FBAE80] text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-full"
+                                            <div class="bg-[#444544] text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-full"
                                                 style="width: 56%"> </div>
                                         </div>
                                     </div>
@@ -399,7 +399,7 @@
             <div class="flex flex-col gap-y-3 w-full">
                 {{-- Header --}}
                 <div class="font-bold text-sm flex items-center justify-between lg:pr-10 w-full">
-                    <h2 class="">From the past 30 days</h2>
+                    <h2 class="">From the last 30 days</h2>
                     <button class="text-[#3E6766]">
                         <span>View All</span>
                     </button>
@@ -446,7 +446,7 @@
                                             <span>37.5%</span>
                                         </div>
                                         <div class="w-full bg-[#F5F5F5] rounded-full ">
-                                            <div class="bg-[#FBAE80] text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-full"
+                                            <div class="bg-[#A390E4] text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-full"
                                                 style="width: 37.5%"> </div>
                                         </div>
                                     </div>
@@ -713,7 +713,7 @@
     </div>
 
     {{-- Table View --}}
-    <div :class=" tabledProjects ? ' overflow-y-auto h-full' : 'w-0 h-0 ' "
+    <div x-cloak :class=" tabledProjects ? ' overflow-y-auto w-[1130px] max-h-[720px]' : 'h-0 w-0 overflow-hidden' "
         class="flex transition-all duration-300 py-5 ease-linear  ">
         {{-- <div class="bg-blue-400 w-full">HELLO</div> --}}
         <div
@@ -723,7 +723,7 @@
                 <thead class="border-b-2 border-[#F5F5F5]">
                     <tr class="whitespace-nowrap text-left">
                         <th scope="col" class="py-3 px-6">
-                            Product Name
+                            Project Title
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Progress
