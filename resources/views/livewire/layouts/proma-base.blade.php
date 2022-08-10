@@ -334,7 +334,7 @@
             </a>
         </nav>
         {{-- Right --}}
-        <div x-data="{ tabledProjects : false }"
+        <div x-data="{ tabledProjects : false, marketTeam : false }"
             class="w-full h-screen  scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />

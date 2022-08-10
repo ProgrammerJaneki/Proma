@@ -3,28 +3,44 @@
 
 <div :class=" minPanel ? 'px-2 md:px-6' : 'px-2 lg:px-10 py-5' " class="bg-[#FAFAFA] flex justify-center w-full h-full">
     {{-- Main Container --}}
+    {{-- Basic Team --}}
     <div class="flex flex-col md:flex-row gap-y-16 gap-x-10 w-full h-full max-w-[1060px] max-h-[780px] ">
         {{-- Left --}}
-        {{-- Team 1 --}}
-        <div class="flex flex-col gap-y-10 h-full  w-full max-w-[677px]">
+        <div class="flex flex-col h-full  w-full max-w-[677px]">
             {{-- Top --}}
             <div class="flex font-bold text-lg md:text-2xl w-full">
                 <h1 class="flex gap-x-2">Project X Team >
-                    <span class="text-[#89C09F] flex items-center gap-x-2 font-semibold text-sm md:text-lg">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
+                    <div class="text-[#89C09F] flex items-center gap-x-2 font-semibold text-sm md:text-lg">
+                        <svg :class=" marketTeam ? 'hidden' : 'flex' " class="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
                             <path fill="currentColor"
                                 d="M512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80s35.8 80 80 80zm-384 0c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80s35.82 80 80 80zm191.9 160c57.41 0 103.1-46.56 103.1-104s-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104c-.9 57.4 45.7 104 103.1 104zm48.1 80c0-16.69 3.398-32.46 8.619-47.36c-2.319-.14-4.419-.64-6.719-.64h-99.8C191.6 352 128 411.7 128 485.3c0 14.8 12.7 26.7 28.4 26.7h266.1c-33-26.4-54.5-66.5-54.5-112zM183.9 216c0-5.449.982-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5c-20.42-23.8-33.22-54.3-33.22-88zm368-24h-61.84c-12.8 0-24.88 3.037-35.86 8.24c.6 5.26 1.6 10.36 1.6 15.76c0 21.47-5.625 41.38-14.65 59.34C462.2 263.4 486.1 256 512 256c42.48 0 80.27 18.74 106.6 48h3.756C632.1 304 640 295.6 640 285.3c0-51.5-39.4-93.3-88.1-93.3zm66.2 174.7c-5.025-16.01-13.59-30.62-24.75-42.71a5.368 5.368 0 0 0-6.699-1.023l-19.17 11.07c-8.096-6.887-17.4-12.28-27.45-15.82V295.1c0-2.514-1.861-4.746-4.281-5.213c-16.56-3.723-33.5-3.629-49.32 0c-1.53 1.313-3.33 3.613-3.33 5.213v22.24c-10.05 3.537-19.36 8.932-27.45 15.82l-19.26-11.07c-2.139-1.303-4.932-.838-6.697 1.023c-11.17 12.1-19.73 26.71-24.66 42.71c-.744 2.512.28 5.117 2.42 6.326l19.17 11.17a90.449 90.449 0 0 0 0 31.64l-19.17 11.17c-2.234 1.209-3.164 3.816-2.42 6.328c4.932 16.01 13.49 30.52 24.66 42.71c1.766 1.863 4.467 2.328 6.697 1.025l19.26-11.07c8.094 6.887 17.4 12.28 27.45 15.82v22.24c0 2.514 1.77 4.746 4.188 5.211c16.66 3.723 33.5 3.629 49.32 0c2.42-.465 4.281-2.697 4.281-5.211v-22.24c10.05-3.535 19.36-8.932 27.45-15.82l19.17 11.07c2.141 1.303 5.025.838 6.699-1.025c11.17-12.1 19.73-26.7 24.75-42.71c.744-2.512-.277-5.119-2.512-6.328l-19.17-11.17a86.164 86.164 0 0 0 0-31.64l19.17-11.17c2.254-.349 3.254-2.949 1.654-5.449zM512 432c-17.67 0-32-14.33-32-32s14.33-32 32-32s32 14.33 32 32c0 17.7-14.3 32-32 32z" />
                         </svg>
-                        <span>Basic Team</span>
-                    </span>
+                        <span :class=" marketTeam ? 'hidden' : 'flex' ">Basic Team</span>
+                        <svg :class=" marketTeam ? 'flex' : 'hidden' " class="w-5 h-5"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                            <mask id="svgIDa">
+                                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                                    <path fill="#fff" stroke="#fff" d="M44 11a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v9h40v-9Z" />
+                                    <path stroke="#fff" d="m4.112 39.03l12.176-12.3l6.58 6.3L30.91 26l4.48 4.368" />
+                                    <path stroke="#fff" d="M44 18v19a3 3 0 0 1-3 3H12" />
+                                    <path stroke="#000" d="M19.112 14h18M11.11 14h2" />
+                                    <path stroke="#fff" d="M4 18v9" />
+                                </g>
+                            </mask>
+                            <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#svgIDa)" />
+                        </svg>
+                        <span :class=" marketTeam ? 'flex' : 'hidden' ">Marketing Team</span>
+                    </div>
                 </h1>
             </div>
 
-            {{-- Contents --}}
-            <div
-                class="flex flex-wrap justify-center xl:justify-start gap-x-6 gap-y-6 w-full h-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            {{-- Basic Team --}}
+            <div x-cloak :class=" marketTeam ? 'h-0 ' : '' "
+                class="flex flex-wrap justify-center xl:justify-start mt-10 gap-x-6 gap-y-10 w-full h-full  
+                transition-all duration-300 ease-linear scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                 {{-- 1 --}}
                 <div
                     class="bg-white flex flex-col items-center gap-y-4 p-4 w-full h-full max-h-[272px] max-w-[200px] rounded-lg shadow-lg">
@@ -495,12 +511,134 @@
                     </div>
                 </div>
             </div>
+            {{-- marketing Team --}}
+            <div x-cloak :class=" marketTeam ? '' : 'h-0 ' "
+                class="flex flex-wrap justify-center xl:justify-start mt-0 gap-x-6 gap-y-0 w-full h-full max-h-[677px] 
+                transition-all duration-300 ease-linear overflow-hidden scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                {{-- 1 --}}
+                <div
+                    class="bg-white flex flex-col items-center gap-y-4 p-4 w-full h-full max-h-[272px] max-w-[200px] rounded-lg shadow-lg">
+                    {{-- Header --}}
+                    <div class="text-[#89C09F] flex justify-end w-full">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
+                            <path fill="currentColor"
+                                d="M512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80s35.8 80 80 80zm-384 0c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80s35.82 80 80 80zm191.9 160c57.41 0 103.1-46.56 103.1-104s-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104c-.9 57.4 45.7 104 103.1 104zm48.1 80c0-16.69 3.398-32.46 8.619-47.36c-2.319-.14-4.419-.64-6.719-.64h-99.8C191.6 352 128 411.7 128 485.3c0 14.8 12.7 26.7 28.4 26.7h266.1c-33-26.4-54.5-66.5-54.5-112zM183.9 216c0-5.449.982-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5c-20.42-23.8-33.22-54.3-33.22-88zm368-24h-61.84c-12.8 0-24.88 3.037-35.86 8.24c.6 5.26 1.6 10.36 1.6 15.76c0 21.47-5.625 41.38-14.65 59.34C462.2 263.4 486.1 256 512 256c42.48 0 80.27 18.74 106.6 48h3.756C632.1 304 640 295.6 640 285.3c0-51.5-39.4-93.3-88.1-93.3zm66.2 174.7c-5.025-16.01-13.59-30.62-24.75-42.71a5.368 5.368 0 0 0-6.699-1.023l-19.17 11.07c-8.096-6.887-17.4-12.28-27.45-15.82V295.1c0-2.514-1.861-4.746-4.281-5.213c-16.56-3.723-33.5-3.629-49.32 0c-1.53 1.313-3.33 3.613-3.33 5.213v22.24c-10.05 3.537-19.36 8.932-27.45 15.82l-19.26-11.07c-2.139-1.303-4.932-.838-6.697 1.023c-11.17 12.1-19.73 26.71-24.66 42.71c-.744 2.512.28 5.117 2.42 6.326l19.17 11.17a90.449 90.449 0 0 0 0 31.64l-19.17 11.17c-2.234 1.209-3.164 3.816-2.42 6.328c4.932 16.01 13.49 30.52 24.66 42.71c1.766 1.863 4.467 2.328 6.697 1.025l19.26-11.07c8.094 6.887 17.4 12.28 27.45 15.82v22.24c0 2.514 1.77 4.746 4.188 5.211c16.66 3.723 33.5 3.629 49.32 0c2.42-.465 4.281-2.697 4.281-5.211v-22.24c10.05-3.535 19.36-8.932 27.45-15.82l19.17 11.07c2.141 1.303 5.025.838 6.699-1.025c11.17-12.1 19.73-26.7 24.75-42.71c.744-2.512-.277-5.119-2.512-6.328l-19.17-11.17a86.164 86.164 0 0 0 0-31.64l19.17-11.17c2.254-.349 3.254-2.949 1.654-5.449zM512 432c-17.67 0-32-14.33-32-32s14.33-32 32-32s32 14.33 32 32c0 17.7-14.3 32-32 32z" />
+                        </svg>
+                    </div>
+                    <img src="{{ asset('images/members/big11.png') }}" alt="">
+                    {{-- Info --}}
+                    <div class="flex flex-col items-center w-full">
+                        <h2 class="font-bold text-lg">Andrew Ramos</h2>
+                        <span class="font-medium text-sm text-[#929EAE]">Marketing Strategist</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-5 w-full">
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1s-1-.45-1-1s.45-1 1-1zm1 14H8c-.55 0-1-.45-1-1s.45-1 1-1h5c.55 0 1 .45 1 1s-.45 1-1 1zm3-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1zm0-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z" />
+                            </svg>
+                            <span>Assign</span>
+                        </div>
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M3 6.25A3.25 3.25 0 0 1 6.25 3h11.5A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25Zm9.5 3c0 .414.336.75.75.75h3.5a.75.75 0 0 0 0-1.5h-3.5a.75.75 0 0 0-.75.75Zm.75 4.75a.75.75 0 1 0 0 1.5h3.5a.75.75 0 1 0 0-1.5h-3.5Zm-2.47-5.22a.75.75 0 1 0-1.06-1.06L8.25 9.19l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2Zm0 4.44a.75.75 0 0 0-1.06 0l-1.47 1.47l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2a.75.75 0 0 0 0-1.06Z" />
+                            </svg>
+                            <span>3 Tasks</span>
+                        </div>
+                    </div>
+                </div>
+                {{-- 2 --}}
+                <div
+                    class="bg-white flex flex-col items-center gap-y-4 p-4 w-full h-full max-h-[272px] max-w-[200px] rounded-lg shadow-lg">
+                    {{-- Header --}}
+                    <div class="text-[#89C09F] flex justify-end w-full">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
+                            <path fill="currentColor"
+                                d="M512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80s35.8 80 80 80zm-384 0c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80s35.82 80 80 80zm191.9 160c57.41 0 103.1-46.56 103.1-104s-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104c-.9 57.4 45.7 104 103.1 104zm48.1 80c0-16.69 3.398-32.46 8.619-47.36c-2.319-.14-4.419-.64-6.719-.64h-99.8C191.6 352 128 411.7 128 485.3c0 14.8 12.7 26.7 28.4 26.7h266.1c-33-26.4-54.5-66.5-54.5-112zM183.9 216c0-5.449.982-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5c-20.42-23.8-33.22-54.3-33.22-88zm368-24h-61.84c-12.8 0-24.88 3.037-35.86 8.24c.6 5.26 1.6 10.36 1.6 15.76c0 21.47-5.625 41.38-14.65 59.34C462.2 263.4 486.1 256 512 256c42.48 0 80.27 18.74 106.6 48h3.756C632.1 304 640 295.6 640 285.3c0-51.5-39.4-93.3-88.1-93.3zm66.2 174.7c-5.025-16.01-13.59-30.62-24.75-42.71a5.368 5.368 0 0 0-6.699-1.023l-19.17 11.07c-8.096-6.887-17.4-12.28-27.45-15.82V295.1c0-2.514-1.861-4.746-4.281-5.213c-16.56-3.723-33.5-3.629-49.32 0c-1.53 1.313-3.33 3.613-3.33 5.213v22.24c-10.05 3.537-19.36 8.932-27.45 15.82l-19.26-11.07c-2.139-1.303-4.932-.838-6.697 1.023c-11.17 12.1-19.73 26.71-24.66 42.71c-.744 2.512.28 5.117 2.42 6.326l19.17 11.17a90.449 90.449 0 0 0 0 31.64l-19.17 11.17c-2.234 1.209-3.164 3.816-2.42 6.328c4.932 16.01 13.49 30.52 24.66 42.71c1.766 1.863 4.467 2.328 6.697 1.025l19.26-11.07c8.094 6.887 17.4 12.28 27.45 15.82v22.24c0 2.514 1.77 4.746 4.188 5.211c16.66 3.723 33.5 3.629 49.32 0c2.42-.465 4.281-2.697 4.281-5.211v-22.24c10.05-3.535 19.36-8.932 27.45-15.82l19.17 11.07c2.141 1.303 5.025.838 6.699-1.025c11.17-12.1 19.73-26.7 24.75-42.71c.744-2.512-.277-5.119-2.512-6.328l-19.17-11.17a86.164 86.164 0 0 0 0-31.64l19.17-11.17c2.254-.349 3.254-2.949 1.654-5.449zM512 432c-17.67 0-32-14.33-32-32s14.33-32 32-32s32 14.33 32 32c0 17.7-14.3 32-32 32z" />
+                        </svg>
+                    </div>
+                    <img src="{{ asset('images/members/big9.png') }}" alt="">
+                    {{-- Info --}}
+                    <div class="flex flex-col items-center w-full">
+                        <h2 class="font-bold text-lg">Angela Mae</h2>
+                        <span class="font-medium text-sm text-[#929EAE]">SEO Specialist</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-5 w-full">
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1s-1-.45-1-1s.45-1 1-1zm1 14H8c-.55 0-1-.45-1-1s.45-1 1-1h5c.55 0 1 .45 1 1s-.45 1-1 1zm3-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1zm0-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z" />
+                            </svg>
+                            <span>Assign</span>
+                        </div>
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M3 6.25A3.25 3.25 0 0 1 6.25 3h11.5A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25Zm9.5 3c0 .414.336.75.75.75h3.5a.75.75 0 0 0 0-1.5h-3.5a.75.75 0 0 0-.75.75Zm.75 4.75a.75.75 0 1 0 0 1.5h3.5a.75.75 0 1 0 0-1.5h-3.5Zm-2.47-5.22a.75.75 0 1 0-1.06-1.06L8.25 9.19l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2Zm0 4.44a.75.75 0 0 0-1.06 0l-1.47 1.47l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2a.75.75 0 0 0 0-1.06Z" />
+                            </svg>
+                            <span>3 Tasks</span>
+                        </div>
+                    </div>
+                </div>
+                {{-- 3 --}}
+                <div
+                    class="bg-white flex flex-col items-center gap-y-4 p-4 w-full h-full max-h-[272px] max-w-[200px] rounded-lg shadow-lg">
+                    {{-- Header --}}
+                    <div class="text-[#89C09F] flex justify-end w-full">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
+                            <path fill="currentColor"
+                                d="M512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80s35.8 80 80 80zm-384 0c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80s35.82 80 80 80zm191.9 160c57.41 0 103.1-46.56 103.1-104s-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104c-.9 57.4 45.7 104 103.1 104zm48.1 80c0-16.69 3.398-32.46 8.619-47.36c-2.319-.14-4.419-.64-6.719-.64h-99.8C191.6 352 128 411.7 128 485.3c0 14.8 12.7 26.7 28.4 26.7h266.1c-33-26.4-54.5-66.5-54.5-112zM183.9 216c0-5.449.982-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5c-20.42-23.8-33.22-54.3-33.22-88zm368-24h-61.84c-12.8 0-24.88 3.037-35.86 8.24c.6 5.26 1.6 10.36 1.6 15.76c0 21.47-5.625 41.38-14.65 59.34C462.2 263.4 486.1 256 512 256c42.48 0 80.27 18.74 106.6 48h3.756C632.1 304 640 295.6 640 285.3c0-51.5-39.4-93.3-88.1-93.3zm66.2 174.7c-5.025-16.01-13.59-30.62-24.75-42.71a5.368 5.368 0 0 0-6.699-1.023l-19.17 11.07c-8.096-6.887-17.4-12.28-27.45-15.82V295.1c0-2.514-1.861-4.746-4.281-5.213c-16.56-3.723-33.5-3.629-49.32 0c-1.53 1.313-3.33 3.613-3.33 5.213v22.24c-10.05 3.537-19.36 8.932-27.45 15.82l-19.26-11.07c-2.139-1.303-4.932-.838-6.697 1.023c-11.17 12.1-19.73 26.71-24.66 42.71c-.744 2.512.28 5.117 2.42 6.326l19.17 11.17a90.449 90.449 0 0 0 0 31.64l-19.17 11.17c-2.234 1.209-3.164 3.816-2.42 6.328c4.932 16.01 13.49 30.52 24.66 42.71c1.766 1.863 4.467 2.328 6.697 1.025l19.26-11.07c8.094 6.887 17.4 12.28 27.45 15.82v22.24c0 2.514 1.77 4.746 4.188 5.211c16.66 3.723 33.5 3.629 49.32 0c2.42-.465 4.281-2.697 4.281-5.211v-22.24c10.05-3.535 19.36-8.932 27.45-15.82l19.17 11.07c2.141 1.303 5.025.838 6.699-1.025c11.17-12.1 19.73-26.7 24.75-42.71c.744-2.512-.277-5.119-2.512-6.328l-19.17-11.17a86.164 86.164 0 0 0 0-31.64l19.17-11.17c2.254-.349 3.254-2.949 1.654-5.449zM512 432c-17.67 0-32-14.33-32-32s14.33-32 32-32s32 14.33 32 32c0 17.7-14.3 32-32 32z" />
+                        </svg>
+                    </div>
+                    <img src="{{ asset('images/members/big7.png') }}" alt="">
+                    {{-- Info --}}
+                    <div class="flex flex-col items-center w-full">
+                        <h2 class="font-bold text-lg">Carla Ramos</h2>
+                        <span class="font-medium text-sm text-[#929EAE]">Content Writer</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-5 w-full">
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1s-1-.45-1-1s.45-1 1-1zm1 14H8c-.55 0-1-.45-1-1s.45-1 1-1h5c.55 0 1 .45 1 1s-.45 1-1 1zm3-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1zm0-4H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z" />
+                            </svg>
+                            <span>Assign</span>
+                        </div>
+                        <div class="flex items-center gap-x-1 font-semibold text-[#929EAE] text-xs ">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M3 6.25A3.25 3.25 0 0 1 6.25 3h11.5A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25Zm9.5 3c0 .414.336.75.75.75h3.5a.75.75 0 0 0 0-1.5h-3.5a.75.75 0 0 0-.75.75Zm.75 4.75a.75.75 0 1 0 0 1.5h3.5a.75.75 0 1 0 0-1.5h-3.5Zm-2.47-5.22a.75.75 0 1 0-1.06-1.06L8.25 9.19l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2Zm0 4.44a.75.75 0 0 0-1.06 0l-1.47 1.47l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2a.75.75 0 0 0 0-1.06Z" />
+                            </svg>
+                            <span>3 Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {{-- Right --}}
-        <div class="bg-white flex flex-col py-2 px-4 w-full h-full max-w-[343px] rounded-lg ">
+        <div class="bg-white flex flex-col py-4 px-4 w-full h-full max-w-[343px] rounded-lg ">
             <div class="flex">
                 {{-- Other Teams --}}
-                <div class="flex flex-col gap-y-9 items-center w-full">
+                <div class="flex flex-col gap-y-7 items-center w-full">
                     {{-- Search Team --}}
                     <div
                         class="border-2 border-[#F5F5F5] text-[#929EAE] text-sm flex items-center gap-x-2 py-2 px-4 w-full rounded-lg ">
@@ -565,26 +703,26 @@
                             {{-- Team Boxes --}}
                             <div class="flex flex-wrap justify-between gap-2 w-full max-w-[311px]">
                                 <div
-                                    class="bg-[#FBAE80]/30 group hover:h-[120px] flex flex-col items-center justify-center gap-y-2 
-                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-lg transition-all duration-150 ease-linear cursor-pointer">
+                                    class="bg-[#FBAE80]/30 group  flex flex-col items-center justify-center gap-y-2 
+                                        w-full h-[120px] max-w-[110px] rounded-md  shadow-lg transition-all duration-150 ease-linear cursor-pointer">
                                     <img src="{{ asset('images/members/team1.png') }}" alt="">
                                     <span class="font-medium text-sm">Project X</span>
                                 </div>
                                 <div
                                     class="bg-[#FF6666]/30 group hover:h-[120px] flex flex-col items-center justify-center gap-y-2 
-                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-l transition-all duration-150 ease-linear cursor-pointer">
+                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-lg transition-all duration-150 ease-linear cursor-pointer">
                                     <img src="{{ asset('images/members/team2.png') }}" alt="">
                                     <span class="font-medium text-sm">Project S</span>
                                 </div>
                                 <div
                                     class="bg-[#7192bE]/30 group hover:h-[120px] flex flex-col items-center justify-center gap-y-2 
-                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-l transition-all duration-150 ease-linear cursor-pointer">
+                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-lg transition-all duration-150 ease-linear cursor-pointer">
                                     <img src="{{ asset('images/members/team3.png') }}" alt="">
                                     <span class="font-medium text-sm">Project T</span>
                                 </div>
                                 <div
                                     class="bg-[#A390E4]/30 group hover:h-[120px] flex flex-col items-center justify-center gap-y-2 
-                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-l transition-all duration-150 ease-linear cursor-pointer">
+                                        w-full h-[100px] max-w-[110px] rounded-md hover:shadow-lg transition-all duration-150 ease-linear cursor-pointer">
                                     <img src="{{ asset('images/members/team4.png') }}" alt="">
                                     <span class="font-medium text-sm">Project Y</span>
                                 </div>

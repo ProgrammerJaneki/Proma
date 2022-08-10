@@ -77,36 +77,42 @@
     </div>
     {{-- Teams --}}
     <div class="{{ Request::is('proma-teams') ? 'flex w-full' : 'hidden' }}">
-        <div x-data="{ marketTeam : false }" class="flex items-center justify-between w-full">
+        <div class="flex items-center justify-between w-full">
             <h1 class="font-bold text-base">Teams</h1>
-            <div class="flex items-center gap-x-4">
-                <button
-                    class="border-2 border-[#929EAE] text-[#929EAE] flex items-center gap-x-4 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
-                    <span>Teams</span>
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                        <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
-                    </svg>
-                </button>
-                <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
-                    <button :class=" tabledProjects ? 'bg-[#89C09F]' : 'bg-[#AAD2BA]/10 text-[#929EAE]' "
-                        class="  p-2 rounded-md cursor-pointer transition duration-300 ease-linear">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
-                            <path fill="currentColor" fill-rule="evenodd"
-                                d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2z" />
-                        </svg>
-                    </button>
-                    <button :class=" tabledProjects ? 'bg-[#AAD2BA]/10 text-[#929EAE]' : 'bg-[#89C09F]' "
-                        class=" p-2 rounded-md cursor-pointer transition duration-300 ease-linear">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm0 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm8-14a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm4-10a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z" />
-                        </svg>
-                    </button>
+            <div x-data="{ dropTeamStructure : false }" class="flex items-center gap-x-4">
+                <div class="flex relative">
+                    {{-- Team Selector --}}
+                    <div class="flex relative">
+                        {{-- Modal --}}
+                        <div :class=" [(dropTeamStructure ? 'flex' : 'hidden')] "
+                            class="absolute flex right-0 top-0 bg-white border-2 border-[#929EAE] font-semibold text-sm text-[#929EAE]  flex-col gap-y-2 p-4 w-[170px]  rounded-lg z-50">
+                            <div class="flex justify-end">
+                                <svg @click=" dropTeamStructure = !dropTeamStructure "
+                                    class="w-4 h-4 hover:text-[#89c094] transition duration-150 ease-linear cursor-pointer"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 16 16">
+                                    <path fill="currentColor"
+                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8L2.146 2.854Z" />
+                                </svg>
+                            </div>
+                            <button @click=" marketTeam = !marketTeam; dropTeamStructure = false "
+                                class="hover:text-[#89c094] text-left transition duration-150 ease-linear cursor-pointer">Basic
+                                Team</button>
+                            <button @click=" marketTeam = true; dropTeamStructure = false "
+                                class="hover:text-[#89c094] text-left transition duration-150 ease-linear cursor-pointer">
+                                Marketing Team</button>
+                        </div>
+                        <button @click=" dropTeamStructure = !dropTeamStructure; modalClicked = true "
+                            class="border-2 border-[#929EAE] text-[#929EAE] flex items-center gap-x-4 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
+                            <span>Team</span>
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
