@@ -149,44 +149,6 @@
                         </svg>
                     </button>
                 </a>
-                {{-- Clients --}}
-                <a class="hidden"
-                    :class=" minPanel ? '{{ Request::is('proma-clients') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
-                'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('proma-clients') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
-                : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
-                    href="">
-                    {{-- Left Indicator --}}
-                    <div
-                        :class=" minPanel ? '{{ Request::is('proma-clients') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
-                        'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('proma-clients') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
-                        ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
-                    </div>
-                    {{-- Icon --}}
-                    <div :class=" minPanel ? 'flex justify-center pl-0 gap-0 ' : ' justify-center lg:justify-start  pl-0 lg:pl-6 gap-0 lg:gap-2' "
-                        class="flex items-center w-full ">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                            <path fill="currentColor"
-                                d="M10.565 4.5H15.5a2.5 2.5 0 0 1 2.479 2.174l.016.162L18 7v4.379A2.24 2.24 0 0 0 16.75 11c-.581 0-1.11.22-1.51.582a2.75 2.75 0 1 0-4.545 2.995A2.312 2.312 0 0 0 9.005 17H4.5a2.5 2.5 0 0 1-2.495-2.336L2 14.5v-7h5.07l.154-.008a1.5 1.5 0 0 0 .823-.353l.111-.106L10.565 4.5ZM7.167 3c.27 0 .535.073.765.21l.135.09l1.318.989l-1.952 2.055l-.06.055a.5.5 0 0 1-.221.094l-.081.007H2v-1a2.5 2.5 0 0 1 2.336-2.495L4.5 3h2.667Zm7.709 11.495l.003.005h-.008l.005-.005Zm-2.126.005a1.75 1.75 0 1 0 0-3.5a1.75 1.75 0 0 0 0 3.5ZM13 19c2.143 0 3-1.098 3-2.188c0-.724-.576-1.312-1.286-1.312h-3.428c-.71 0-1.286.588-1.286 1.313c0 1.093.857 2.187 3 2.187Zm3.5-.5h-.023A2.945 2.945 0 0 0 17 16.812c0-.483-.148-.937-.404-1.312h1.333c.592 0 1.071.504 1.071 1.125c0 .934-.714 1.875-2.5 1.875Zm.25-4a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5Z" />
-                        </svg>
-                        <span :class=" minPanel ? 'hidden' : 'hidden lg:flex' ">Clients</span>
-                    </div>
-                    {{-- Circle --}}
-                    <button
-                        class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('proma-clients') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('proma-clients') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
-                        <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="m11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707l-1.414 1.414L15.586 11H6v2h9.586z" />
-                        </svg>
-                    </button>
-                </a>
                 {{-- Messages --}}
                 <a :class=" minPanel ? '{{ Request::is('proma-messages') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 

@@ -111,7 +111,7 @@
                         <a class="hover:text-[#3E6766]" href="/">Dashboard</a>
                         <a class="hover:text-[#3E6766]" href="{{ route('proma-projects') }}">Projects</a>
                         <a class="hover:text-[#3E6766]" href="/proma-teams">Teams</a>
-                        <a class="hover:text-[#3E6766]" href="/proma-clients">Clients</a>
+                        {{-- <a class="hover:text-[#3E6766]" href="/proma-clients">Clients</a> --}}
                         <a class="hover:text-[#3E6766]" href="/proma-messages">Messages</a>
                         <a class="hover:text-[#3E6766]" href="/proma-settings">Settings</a>
                     </div>

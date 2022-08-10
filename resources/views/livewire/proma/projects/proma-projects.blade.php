@@ -311,7 +311,7 @@
                         </div>
                         {{-- 5 --}}
                         <div
-                            class="bg-white border-2 border-[#F5F5F5] flex flex-col p-4 w-full min-w-[250px] max-w-[250px] h-[304px] shadow-lg rounded-xl">
+                            class="bg-white border-2 border-[#F5F5F5] hidden flex-col p-4 w-full min-w-[250px] max-w-[250px] h-[304px] shadow-lg rounded-xl">
                             {{-- Header 1 --}}
                             <div class="flex justify-between w-full ">
                                 <img src="{{ asset('images/projects/project-lx9.png') }}" alt="">
@@ -383,7 +383,7 @@
                         </div>
                         {{-- End --}}
                     </div>
-                    <button @click=" enableScroll = !enableScroll "
+                    {{-- <button @click=" enableScroll = !enableScroll "
                         :class=" enableScroll ? 'bg-[#3E6766] text-white' : '' "
                         class="bg-white p-2 text-[#3E6766] hover:bg-[#3E6766] hover:text-[#FFFFFF] hidden lg:block  rounded-full transition duration-300 ease-linear">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
@@ -392,7 +392,7 @@
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" d="M4 12h16m-7-7l7 7l-7 7" />
                         </svg>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
             {{-- Bottom --}}
@@ -697,7 +697,7 @@
                         </div>
                         {{-- End --}}
                     </div>
-                    <button
+                    {{-- <button
                         class="bg-white p-2 text-[#3E6766] hover:bg-[#3E6766] hover:text-[#FFFFFF] hidden lg:block rounded-full transition duration-300 ease-linear">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
@@ -705,7 +705,7 @@
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" d="M4 12h16m-7-7l7 7l-7 7" />
                         </svg>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
 
