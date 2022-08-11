@@ -10,7 +10,7 @@
             {{-- Top --}}
             <div class="flex font-bold text-lg md:text-2xl w-full">
                 <h1 class="flex gap-x-2">Project X Team >
-                    <div class="text-[#89C09F] flex items-center gap-x-2 font-semibold text-sm md:text-lg">
+                    <div class="text-[#3E6766] flex items-center gap-x-2 font-semibold text-sm md:text-lg">
                         <svg :class=" marketTeam ? 'hidden' : 'flex' " class="w-5 h-5"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
@@ -45,7 +45,7 @@
                 <div
                     class="bg-white flex flex-col items-center gap-y-4 p-4 w-full h-full max-h-[272px] max-w-[200px] rounded-lg shadow-lg">
                     {{-- Header --}}
-                    <div class="text-[#89C09F] flex justify-end w-full">
+                    <div class="text-[#3E6766] flex justify-end w-full">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 512">
