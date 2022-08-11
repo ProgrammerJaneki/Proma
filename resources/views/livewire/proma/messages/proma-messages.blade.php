@@ -26,7 +26,6 @@
                             transition-all duration-150 ease-linear w-full">
                         <span class="hover:text-[#89C09F]">People</span>
                     </button>
-                    {{-- Desktop View --}}
                 </div>
                 {{-- Conversation --}}
                 <div x-cloak :class=" showChat ? 'flex md:hidden' : 'hidden' "
@@ -45,7 +44,7 @@
                                 </svg>
                             </button>
                             <div class="flex items-center gap-2">
-                                <div class="bg-red-200 w-[40px] h-[40px] rounded-full "></div>
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
                                 <div class="flex flex-col justify-center">
                                     <h2 class="font-semibold text-sm">Thomas Ramos</h2>
                                     <span class="font-medium text-xs text-[#929EAE]">Active 29 mins ago</span>
@@ -541,7 +540,7 @@
             | At Desktop View, it will be shown instead to the right column --}}
 
             {{-- Individual Convo Desktop View --}}
-            <div class="hidden md:flex w-full">
+            <div class="hidden md:flex p-4 w-full">
                 {{-- Default Display --}}
                 <div x-cloak :class=" showChat ? 'hidden ' : 'flex' " class=" items-center justify-center px-4 w-full">
                     <div class="font-bold text-4xl flex flex-col gap-y-6 items-center">
@@ -552,8 +551,127 @@
                     </div>
                 </div>
                 {{-- Conversation Desktop View --}}
-                <div x-cloak :class=" showChat ? 'hidden md:flex ' : 'hidden' " class="bg-blue-100">
-                    Desktop View
+                <div x-cloak :class=" showChat ? 'hidden md:flex ' : 'hidden' " class="w-full">
+                    {{-- 1 --}}
+                    <div class="flex flex-col w-full">
+                        {{-- Header (Conversation)--}}
+                        <div class="border-b-2 border-[#F5F5F5] flex items-center justify-between py-2 w-full">
+                            {{-- Left --}}
+                            <div class="flex items-center gap-x-3 w-full ">
+                                <button @click=" showChat = !showChat "
+                                    class="bg-[#F5F5F5] hover:text-[#3E6766] hover:bg-[#AAD2BA]/20 p-2 rounded-md">
+                                    <svg class="w-4 h-4 text-[#929EAE]" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                        <path fill="currentColor" d="m14 5l-5 5l5 5l-1 2l-7-7l7-7z" />
+                                    </svg>
+                                </button>
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                    {{-- <div class="bg-red-200 w-[40px] h-[40px] rounded-full "></div> --}}
+                                    <div class="flex flex-col justify-center">
+                                        <h2 class="font-semibold text-sm">Thomas Ramos</h2>
+                                        <span class="font-medium text-xs text-[#929EAE]">Active 29 mins ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Right --}}
+                            <div class="flex items-center gap-x-4 px-2">
+                                <svg class=" text-[#89C09F] cursor-pointer w-6 h-6 " xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                    <path fill="currentColor"
+                                        d="M6.987 2.066a2 2 0 0 1 2.327.946l.074.149l.662 1.471a2.497 2.497 0 0 1-.442 2.718l-.133.132l-1.043.973c-.188.178-.047.867.633 2.045c.612 1.06 1.11 1.555 1.355 1.582h.043l.053-.01l2.05-.627a1.5 1.5 0 0 1 1.564.441l.091.115l1.357 1.88a2 2 0 0 1-.125 2.497l-.122.126l-.542.514a3.5 3.5 0 0 1-3.715.705c-1.935-.78-3.693-2.562-5.29-5.328c-1.6-2.773-2.265-5.19-1.968-7.26a3.5 3.5 0 0 1 2.261-2.789l.193-.064l.717-.216Z" />
+                                </svg>
+                                <svg class=" text-[#89C09F] cursor-pointer w-6 h-6 " xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 26 26">
+                                    <path fill="currentColor"
+                                        d="M8.5 6C2.5 6 0 6.813 0 7.469V18.5c0 .641 2.5 1.5 8.5 1.5s8.5-.813 8.5-1.469V7.5C17 6.859 14.5 6 8.5 6zm16.875.031a.885.885 0 0 0-.469.157l-6.5 4.187c-.25.188-.406.498-.406.813v3.624c0 .315.156.624.406.813l6.5 4.188c.176.133 1.032.55 1.032-.813V7c0-.787-.271-.981-.563-.969z" />
+                                </svg>
+                            </div>
+                        </div>
+                        {{-- Middle (Conversation) --}}
+                        <div
+                            class="flex flex-col justify-center gap-y-4 p-2 mb-4 w-full overflow-y-auto sm:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                            {{-- Message Boxes --}}
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <img class="w-[420px] h-[150px] cursor-pointer rounded-lg"
+                                    src="{{ asset('images/dashboard/messages/conv1.png') }}" alt="">
+                            </div>
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <label class="bg-[#AAD2BA]/10 flex p-2 font-medium text-sm max-w-[420px] rounded-md">
+                                    <span class="flex">yung mismong .push, .map, .filter lang talaga error e</span>
+                                </label>
+                            </div>
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <img class="w-[420px] h-[250px] cursor-pointer rounded-lg"
+                                    src="{{ asset('images/dashboard/messages/conv1.png') }}" alt="">
+                            </div>
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <label class="bg-[#AAD2BA]/10 flex p-2 font-medium text-sm max-w-[420px] rounded-md">
+                                    <span class="flex">yung mismong .push, .map, .filter lang talaga error e</span>
+                                </label>
+                            </div>
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <img class="w-[420px] h-[250px] cursor-pointer rounded-lg"
+                                    src="{{ asset('images/dashboard/messages/conv1.png') }}" alt="">
+                            </div>
+                            <div class="flex items-end gap-x-2 w-full">
+                                <img src="{{ asset('images/dashboard/messages/p1.png') }}" alt="">
+                                <label class="bg-[#AAD2BA]/10 flex p-2 font-medium text-sm max-w-[420px] rounded-md">
+                                    <span class="flex">yung mismong .push, .map, .filter lang talaga error e</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        {{-- Bottom (Conversation) --}}
+                        <div
+                            class="border-2 border-[#F5F5F5] group focus-within:bg-[#AAD2BA]/10 flex items-center gap-x-10 justify-between p-4 mt-auto w-full rounded-lg">
+                            {{-- Left --}}
+                            <div class="flex items-center gap-x-3 w-full">
+                                <svg class="text-[#89C09F] w-6 h-6  cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                                    <path fill="currentColor"
+                                        d="M4 24C4 12.954 12.954 4 24 4s20 8.954 20 20s-8.954 20-20 20S4 35.046 4 24Zm13.5-2a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5ZM33 19.5a2.5 2.5 0 1 0-5 0a2.5 2.5 0 0 0 5 0ZM18.452 34.681A11.718 11.718 0 0 0 24 36a11.718 11.718 0 0 0 9.816-5.1a1.249 1.249 0 1 0-2.13-1.307A9.212 9.212 0 0 1 24 33.5a9.22 9.22 0 0 1-7.687-3.907a1.248 1.248 0 1 0-2.13 1.307a11.718 11.718 0 0 0 4.269 3.781Z" />
+                                </svg>
+                                <input
+                                    class="bg-transparent text-[#929EAE] font-semibold text-sm focus:outline-none w-full"
+                                    type="text" placeholder="Message..">
+                            </div>
+                            {{-- Right --}}
+                            <div class="group-focus-within:hidden flex items-center gap-x-3">
+                                <svg class="text-[#89C09F] w-6 h-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                                    <g fill="currentColor">
+                                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0z" />
+                                        <path
+                                            d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71l-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                    </g>
+                                </svg>
+                                <svg class="text-[#89C09F] w-6 h-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                    <path fill="currentColor"
+                                        d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9z" />
+                                </svg>
+                            </div>
+                            {{-- Send Button --}}
+                            <svg class="group-focus-within:flex hidden text-[#89C09F] w-6 h-6 cursor-pointer"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                <path fill="currentColor"
+                                    d="m2.721 2.051l15.355 7.566a.5.5 0 0 1 0 .897L2.72 18.08a.5.5 0 0 1-.704-.576l1.521-5.745a.5.5 0 0 1 .401-.365l6.881-1.147a.25.25 0 0 0 .188-.146l.018-.06a.25.25 0 0 0-.15-.272l-.056-.016L3.9 8.6a.5.5 0 0 1-.4-.365L2.016 2.628a.5.5 0 0 1 .704-.577Z" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
