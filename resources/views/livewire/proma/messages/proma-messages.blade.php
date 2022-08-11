@@ -6,10 +6,10 @@
     <div class="bg-white flex w-full h-full max-w-[360px] md:max-w-[1060px] max-h-[780px] shadow-md rounded-lg
             transition-all duration-300 ease-linear">
         {{-- Left & Right --}}
-        <div class="flex flex-col md:flex-row w-full max-w-[375px] ">
+        <div x-data="{ showChat : false }" class="flex flex-col md:flex-row w-full ">
             {{-- Chats & People --}}
             <div x-data="{ people : false }"
-                class="md:border-r-2 border-[#F5F5F5] flex flex-col gap-y-2 md:gap-y-4 w-full overflow-y-hidden">
+                class="md:border-r-2 border-[#F5F5F5] flex flex-col gap-y-2 md:gap-y-4 w-full max-w-[375px] overflow-y-hidden">
                 {{-- Individual Convo Mobile View --}}
                 {{-- Header --}}
                 <div class="flex justify-between md:justify-between w-full">
@@ -26,8 +26,13 @@
                     </button>
                     {{-- Desktop View --}}
                 </div>
+                {{-- Conversation --}}
+                <div :class=" showChat ? 'flex md:hidden' : 'hidden' " class="bg-red-200 ">
+                    <button @click=" showChat = !showChat ">Show</button>
+                </div>
                 {{-- Search Bar & Chats --}}
-                <div class="flex flex-col gap-y-2 md:gap-y-4 px-2 w-full overflow-y-auto">
+                <div :class=" showChat ? 'hidden md:flex' : 'flex' "
+                    class="flex-col gap-y-2 md:gap-y-4 px-2 w-full overflow-y-auto">
                     <div
                         class="bg-[#FAFAFA] flex items-center p-2 md:p-3 gap-x-2 font-semibold text-[#929EAE] text-sm w-full rounded-lg">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
@@ -40,10 +45,11 @@
                     </div>
                     {{-- Chats --}}
                     <div :class=" people ? 'hidden' : 'flex' "
-                        class="flex flex-col border-t-2 border-[#F5F5F5] py-2 md:py-2 w-full overflow-y-auto  md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                        class="flex flex-col border-t-2 border-[#F5F5F5] py-2 md:py-2 w-full overflow-y-auto  sm:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                         {{-- 1 --}}
-                        <button
-                            class="hover:bg-[#AAD2BA]/20 flex items-center gap-x-2 py-2 md:py-4 px-2 pr-4 w-full rounded-md transition duration-150 ease-linear">
+                        <button @click=" showChat = !showChat "
+                            :class=" showChat ? 'bg-[#AAD2BA]/20' : 'hover:bg-[#AAD2BA]/20' "
+                            class=" flex items-center gap-x-2 py-2 md:py-4 px-2 pr-4 w-full rounded-md transition duration-150 ease-linear">
                             <img src="{{ asset('images/messages/people2.png') }}" alt="">
                             <div class="flex flex-col w-full ">
                                 <div class="flex justify-between ">
@@ -193,7 +199,7 @@
                     </div>
                     {{-- People --}}
                     <div :class=" people ? 'flex' : 'hidden' "
-                        class="flex flex-col border-t-2 border-[#F5F5F5] py-2 md:py-2 w-full  overflow-y-auto  md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                        class="flex flex-col border-t-2 border-[#F5F5F5] py-2 md:py-2 w-full  overflow-y-auto  sm:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
                         {{-- Online Header --}}
                         <h2 class="px-2 font-semibold text-[#929EAE] text-sm">Online (10)</h2>
                         {{-- Onlines --}}
@@ -408,12 +414,21 @@
                     </div>
                 </div>
             </div>
-            {{-- Individual Convo Desktop View --}}
             {{-- Will be shown when a convo is clicked | At Mobile view, it will make Indiv Convo Mobile View into
             hidden and be flexed
             | At Desktop View, it will be shown instead to the right column --}}
-            <div class="hidden md:flex">
-                Hey
+
+            {{-- Individual Convo Desktop View --}}
+            <div class="hidden md:flex w-full">
+                {{-- Default Display --}}
+                <div :class=" showChat ? 'hidden ' : 'flex' " class=" items-center justify-center px-4 w-full">
+                    <div class="font-bold text-4xl flex flex-col gap-y-6 items-center">
+                        {{-- <img src="{{ asset('images/dashboard/messages/g1.png') }}" alt=""> --}}
+                        <img src="{{ asset('images/messages/bg.png') }}" alt="">
+                        <h1 class="text-center drop-shadow-xl">Connect with your Team <span
+                                class="text-[#89C09F] font-extrabold text-5xl">.</span> </h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
