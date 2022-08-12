@@ -7,7 +7,7 @@
     <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full h-full  ">
         {{-- Left Panel --}}
         <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
-            class="bg-white hidden md:flex flex-col w-full  h-[900px] transition-all duration-300 py-6 ease-linear">
+            class="bg-white hidden md:flex flex-col w-full transition-all duration-300 py-6 ease-linear">
             {{-- Header --}}
             <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-center lg:justify-between px-0 lg:px-6 ' "
                 class="w-full h-full md:max-h-[25px] ">

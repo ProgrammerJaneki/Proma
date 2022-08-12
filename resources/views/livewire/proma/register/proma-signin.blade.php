@@ -1,8 +1,10 @@
 @extends('livewire.layouts.proma-register-base')
 @section('register-content')
 
-<div class="bg-transparent absolute flex items-center justify-center w-full h-full ">
-    <div class="bg-white flex flex-col items-center gap-y-4 p-8 w-full max-w-[375px] h-[470px] shadow-lg rounded-xl">
+<div
+    class="bg-transparent absolute flex mt-20 sm:mt-0 sm:items-center justify-center w-full h-full transition-all duration-200 ease-linear">
+    <div
+        class="bg-white flex flex-col items-center gap-y-4 p-8 w-full max-w-[350px] sm:max-w-[375px] h-[470px] shadow-lg rounded-xl">
         {{-- Header --}}
         <div class="flex flex-col items-center gap-y-4 px-4 w-full">
             <h1 class="font-extrabold text-3xl">Sign In</h1>
