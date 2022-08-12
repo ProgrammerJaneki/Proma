@@ -16,20 +16,6 @@
         </div>
         {{-- Form --}}
         <form class="flex flex-col gap-y-3 mt-4 w-full">
-            {{-- Fullname --}}
-            {{-- <div class="group focus-within:bg-[#AAD2BA]/10 border-2 border-[#F5F5F5] text-[#929EAE] font-semibold text-sm flex items-center justify-between 
-                    py-2 px-4 w-full rounded-lg transition-all duration-150 ease-linear">
-                <input class="bg-transparent focus:outline-none w-full" type="text" placeholder="Enter Fullname">
-                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="1.5">
-                        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2Z" />
-                        <path
-                            d="M4.271 18.346S6.5 15.5 12 15.5s7.73 2.846 7.73 2.846M12 12a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z" />
-                    </g>
-                </svg>
-            </div> --}}
             {{-- Email --}}
             <div class="group focus-within:bg-[#AAD2BA]/10 border-2 border-[#F5F5F5] text-[#929EAE] font-semibold text-sm flex items-center justify-between 
                     py-2 px-4 w-full rounded-lg transition-all duration-150 ease-linear">

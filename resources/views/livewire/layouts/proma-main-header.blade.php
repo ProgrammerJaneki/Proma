@@ -97,7 +97,7 @@
                         </div>
                         {{-- Bottom --}}
                         <div class="flex items-center text-base py-2 w-full">
-                            <a href="{{ route('proma-signup') }}"><span
+                            <a href="{{ route('proma-signin') }}"><span
                                     class="hover:text-[#89C09F] transition duration-150 ease-linear">Sign
                                     out</span></a>
                         </div>
@@ -196,7 +196,7 @@
                             <path fill="none" d="M0 0h36v36H0z" />
                         </svg>
                     </div>
-                    <a class="text-[#3E6766]" href="{{ route('proma-signup') }}">
+                    <a class="text-[#3E6766]" href="{{ route('proma-signin') }}">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">

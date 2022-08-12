@@ -28,7 +28,6 @@
         {{-- Background --}}
         <img class="invisible sm:visible w-full object-contain transition-all duration-300 ease-linear"
             src="{{ asset('images/Register/reg-team.jpg') }}" alt="">
-        {{-- <img src="{{ asset('images/Register/register-bg.png') }}" alt=""> --}}
         @yield('register-content')
     </div>
 </div>
