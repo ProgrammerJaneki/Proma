@@ -1,4 +1,4 @@
-<div x-data="{dropDown : false}" class="px-2 sm:pl-6 sm:pr-10 w-full">
+<div x-data="{dropDown : false}" class="bg-white px-2 sm:pl-6 sm:pr-10 w-full">
     <div x-data="{ darkMode: false }"
         class="bg-white flex items-center border-b-2 border-[#F5F5F5] py-4 justify-between">
         {{-- Left || 54px --}}
@@ -23,7 +23,7 @@
         </div>
 
         {{-- Desktop View Header (Right) --}}
-        <div class="hidden md:flex justify-end items-center gap-3 w-full">
+        <div x-data="{ showProfile : false }" class="hidden md:flex justify-end items-center gap-3 w-full">
             {{-- Dark Mode Switcher & Notification --}}
             <div class="border-x-2 border-[#F5F5F5] flex items-center gap-4 bg-white py-2 px-4">
                 {{-- Switcher --}}
@@ -68,8 +68,41 @@
                     <span class="text-sm">Jannel Revilla</span>
                     <span class="text-xs">Intern</span>
                 </dif>
-                <button class="text-[#929EAE] flex items-center gap-1">
-                    <img class="w-9 h-9" src="{{ asset('images/me.png') }}" alt="me">
+                <button @click=" showProfile = !showProfile " class="text-[#929EAE] relative flex items-center gap-1">
+                    {{-- Profile Modal --}}
+                    <div :class=" showProfile ? 'flex' : 'hidden' "
+                        class="flex-col absolute bg-white border-2 border-[#929EAE] font-semibold text-[#929EAE] text-sm top-10 right-0 p-4 z-40 w-[200px] h-[280px] rounded-lg">
+                        {{-- Header --}}
+                        <div class="flex items-center gap-x-2 pb-2 w-full">
+                            <img src="{{ asset('images/jannel.png') }}" alt="">
+                            {{-- <div class="bg-red-200 w-[40px] h-[40px] rounded-full"></div> --}}
+                            <div class="text-left flex flex-col justify-center ">
+                                <span>Jannel Revilla</span>
+                                <span class="">UI/UX Intern</span>
+                            </div>
+                        </div>
+                        {{-- Middle --}}
+                        <div
+                            class="border-y-2 border-[#F5F5F5] items-start text-base flex flex-col gap-y-2 py-2 w-full">
+                            <a href=""><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Profile</span></a>
+                            <a href="{{ route('proma-projects') }}"><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Projects</span></a>
+                            <a href="{{ route('proma-teams') }}"><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Teams</span></a>
+                            <a href="{{ route('proma-messages') }}"><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Messages</span></a>
+                            <a href="{{ route('proma-settings') }}"><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Settings</span></a>
+                        </div>
+                        {{-- Bottom --}}
+                        <div class="flex items-center text-base py-2 w-full">
+                            <a href="{{ route('proma-signup') }}"><span
+                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Sign
+                                    out</span></a>
+                        </div>
+                    </div>
+                    <img class="w-9 h-9" src="{{ asset('images/jannel.png') }}" alt="me">
                     <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
                         <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
@@ -104,7 +137,7 @@
             </div>
             {{-- Links --}}
             <div :class=" dropDown ? 'flex' : 'hidden' "
-                class="bg-[#FFFFFF] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 shadow-xl rounded-lg">
+                class="bg-[#FFFFFF] border-2 border-[#929EAE] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 rounded-lg">
                 <div class="flex justify-between w-full">
                     <div class="font-bold text-[#929EAE] flex flex-col gap-y-2">
                         <a class="hover:text-[#3E6766]" href="">Profile</a>
@@ -163,7 +196,7 @@
                             <path fill="none" d="M0 0h36v36H0z" />
                         </svg>
                     </div>
-                    <a class="text-[#3E6766]" href="proma-signin">
+                    <a class="text-[#3E6766]" href="{{ route('proma-signup') }}">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">

@@ -17,6 +17,9 @@ Route::view('/', 'livewire/proma/dashboard/proma-dashboard')->name('proma-dashbo
 Route::view('/proma-projects', 'livewire/proma/projects/proma-projects')->name('proma-projects');
 Route::view('/proma-teams', 'livewire/proma/teams/proma-teams')->name('proma-teams');
 Route::view('/proma-messages', 'livewire/proma/messages/proma-messages')->name('proma-messages');
+Route::view('/proma-settings', 'livewire/proma/settings/proma-settings')->name('proma-settings');
+Route::view('/proma-signup', 'livewire/proma/register/proma-signup')->name('proma-signup');
+Route::view('/proma-signin', 'livewire/proma/register/proma-signin')->name('proma-signin');
 
 // Route::get('/', function () {
 //     return view('welcome');

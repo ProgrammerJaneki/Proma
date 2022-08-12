@@ -84,7 +84,7 @@
                     {{-- Team Selector --}}
                     <div class="flex relative">
                         {{-- Modal --}}
-                        <div :class=" [(dropTeamStructure ? 'flex' : 'hidden')] "
+                        <div x-cloak :class=" [(dropTeamStructure ? 'flex' : 'hidden')] "
                             class="absolute flex right-0 top-0 bg-white border-2 border-[#929EAE] font-semibold text-sm text-[#929EAE]  flex-col gap-y-2 p-4 w-[170px]  rounded-lg z-50">
                             <div class="flex justify-end">
                                 <svg @click=" dropTeamStructure = !dropTeamStructure "
@@ -119,28 +119,15 @@
     </div>
     {{-- Messages --}}
     <div class="{{ Request::is('proma-messages') ? 'flex w-full' : 'hidden' }}">
-        <div class="flex items-center justify-between w-full">
+        <div class="flex items-center w-full">
             <h1 class="font-bold text-base">Messages</h1>
-            <div class="flex items-center">
-                <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
-                    <div class="bg-transparent text-[#929EAE] p-2 rounded-md cursor-pointer">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M6 21H3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1zm7 0h-3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1z" />
-                        </svg>
-                    </div>
-                    <div class="bg-[#89C09F] p-2 rounded-md cursor-pointer">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm0 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm8-14a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm4-10a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+    {{-- Settings --}}
+    {{-- Messages --}}
+    <div class="{{ Request::is('proma-settings') ? 'flex w-full' : 'hidden' }}">
+        <div class="flex items-center w-full">
+            <h1 class="font-bold text-base">Settings</h1>
         </div>
     </div>
 </div>

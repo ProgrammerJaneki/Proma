@@ -191,7 +191,7 @@
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
                 '{{ Request::is('proma-settings') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
-                    href="">
+                    href="{{ route('proma-settings') }}">
                     {{-- Left Indicator --}}
                     <div
                         :class=" minPanel ? '{{ Request::is('proma-settings') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
@@ -297,7 +297,7 @@
         </nav>
         {{-- Right --}}
         <div x-data="{ tabledProjects : false, marketTeam : false }"
-            class="w-full h-screen  scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            class="bg-[#FAFAFA] w-full h-screen  scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}
