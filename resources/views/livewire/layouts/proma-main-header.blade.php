@@ -1,4 +1,4 @@
-<div x-data="{dropDown : false}" class="bg-white px-2 sm:pl-6 sm:pr-10 w-full">
+<div x-data="{dropDown : false}" class="w-full px-2 bg-white sm:pl-6 sm:pr-10">
     <div x-data="{ darkMode: false }"
         class="bg-white flex items-center border-b-2 border-[#F5F5F5] py-4 justify-between">
         {{-- Left || 54px --}}
@@ -12,9 +12,9 @@
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
                     d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z" />
             </svg>
-            <input class="focus:bg-transparent text-sm focus:outline-none w-full" type="text"
+            <input class="w-full text-sm focus:bg-transparent focus:outline-none" type="text"
                 placeholder="Search for anything here">
-            <svg class="group-focus-within:flex hidden cursor-pointer w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+            <svg class="hidden w-4 h-4 cursor-pointer group-focus-within:flex" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                 <path fill="currentColor"
@@ -23,7 +23,7 @@
         </div>
 
         {{-- Desktop View Header (Right) --}}
-        <div x-data="{ showProfile : false }" class="hidden md:flex justify-end items-center gap-3 w-full">
+        <div x-data="{ showProfile : false }" class="items-center justify-end hidden w-full gap-3 md:flex">
             {{-- Dark Mode Switcher & Notification --}}
             <div class="border-x-2 border-[#F5F5F5] flex items-center gap-4 bg-white py-2 px-4">
                 {{-- Switcher --}}
@@ -64,7 +64,7 @@
             </div>
             {{-- Profile --}}
             <div class="flex items-center gap-2">
-                <dif class="text-right font-semibold flex flex-col">
+                <dif class="flex flex-col font-semibold text-right">
                     <span class="text-sm">Jannel Revilla</span>
                     <span class="text-xs">Intern</span>
                 </dif>
@@ -73,10 +73,10 @@
                     <div :class=" showProfile ? 'flex' : 'hidden' "
                         class="flex-col absolute bg-white border-2 border-[#929EAE] font-semibold text-[#929EAE] text-sm top-10 right-0 p-4 z-40 w-[200px] h-[280px] rounded-lg">
                         {{-- Header --}}
-                        <div class="flex items-center gap-x-2 pb-2 w-full">
+                        <div class="flex items-center w-full pb-2 gap-x-2">
                             <img src="{{ asset('images/jannel.png') }}" alt="">
                             {{-- <div class="bg-red-200 w-[40px] h-[40px] rounded-full"></div> --}}
-                            <div class="text-left flex flex-col justify-center ">
+                            <div class="flex flex-col justify-center text-left ">
                                 <span>Jannel Revilla</span>
                                 <span class="">UI/UX Intern</span>
                             </div>
@@ -96,7 +96,7 @@
                                     class="hover:text-[#89C09F] transition duration-150 ease-linear">Settings</span></a>
                         </div>
                         {{-- Bottom --}}
-                        <div class="flex items-center text-base py-2 w-full">
+                        <div class="flex items-center w-full py-2 text-base">
                             <a href="{{ route('proma-signin') }}"><span
                                     class="hover:text-[#89C09F] transition duration-150 ease-linear">Sign
                                     out</span></a>
@@ -112,7 +112,7 @@
         </div>
 
         {{-- Mobile View Header (Right) --}}
-        <div class="relative flex md:hidden flex-col items-center">
+        <div class="relative flex flex-col items-center md:hidden">
             {{-- Search --}}
             <div :class=" dropDown ? 'hidden' : 'flex' " class="flex items-center gap-4">
                 <div class="text-[#929EAE] hover:text-[#3E6766] flex md:hidden items-center">
@@ -136,7 +136,7 @@
                 </button>
             </div>
             {{-- Links --}}
-            <div :class=" dropDown ? 'flex' : 'hidden' "
+            <div x-cloak :class=" dropDown ? 'flex' : 'hidden' "
                 class="bg-[#FFFFFF] border-2 border-[#929EAE] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 rounded-lg">
                 <div class="flex justify-between w-full">
                     <div class="font-bold text-[#929EAE] flex flex-col gap-y-2">
@@ -149,7 +149,7 @@
                         <a class="hover:text-[#3E6766]" href="/proma-settings">Settings</a>
                     </div>
                     <button @click=" dropDown = !dropDown " class="flex hover:text-[#3E6766]">
-                        <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="w-5 h-5 font-bold" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                             <path fill="currentColor"
@@ -159,7 +159,7 @@
                 </div>
                 {{-- Bottom --}}
                 <div class=" border-t-2 border-[#F5F5F5] pt-2 flex justify-between items-center w-full">
-                    <div class="flex items-center gap-x-2 w-full">
+                    <div class="flex items-center w-full gap-x-2">
                         <button @click='darkMode = !darkMode'
                             class="flex text-[#3E6766] cursor-pointer transition duration-300 ease-in-ou">
                             {{-- Light --}}

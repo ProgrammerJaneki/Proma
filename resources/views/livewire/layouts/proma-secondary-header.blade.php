@@ -1,8 +1,8 @@
-<div :class=" minPanel ? 'pl-0' : 'pl-0 lg:pl-4' " class="flex items-center py-0 h-12 w-full">
+<div :class=" minPanel ? 'pl-0' : 'pl-0 lg:pl-4' " class="flex items-center w-full h-12 py-0">
     {{-- Dashboard --}}
     <div class="{{ Request::is('/') ? 'flex w-full' : 'hidden' }}">
         <div class="flex items-center justify-between w-full">
-            <h1 class="font-bold text-base">Dashboard</h1>
+            <h1 class="text-base font-bold">Dashboard</h1>
             <div class="flex items-center">
                 <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
                     <div class="bg-transparent text-[#929EAE] p-2 rounded-md cursor-pointer">
@@ -26,14 +26,114 @@
         </div>
     </div>
     {{-- Projects --}}
-    <div class="{{ Request::is('proma-projects') ? 'flex w-full' : 'hidden' }}">
+    <div x-data="{ projectTitle : '', addProject : false }"
+        class="{{ Request::is('proma-projects') ? 'flex w-full' : 'hidden' }}">
         <div class="flex items-center justify-between w-full">
-            <h1 class="font-bold text-base">Projects</h1>
+            <h1 class="text-base font-bold">Projects</h1>
             <div class="flex items-center gap-x-4">
-                <button
+                <button @click="addProject = !addProject; $nextTick(() => { $refs.inputProjectTitle.focus(); }); "
                     class="bg-[#89C09F] border-2 hidden md:flex text-white font-semibold text-xs py-2 px-4 shadow-md rounded-md">
                     <span>Add Project</span>
                 </button>
+
+                {{-- ADD PROJECT MODAL --}}
+                {{-- Modal Background --}}
+                <div x-cloak x-show="addProject"
+                    class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
+                    tabindex="-1" aria-model="false" role="dialog">
+                    {{-- Modal Content --}}
+                    <div x-show="addProject" x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 scale-90" x-translation:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                        class="relative bg-white  rounded-lg shadow w-[500px]">
+                        {{-- Header --}}
+                        <div class="flex justify-between p-4 ml-auto overflow-hidden">
+                            <h2 class="text-3xl font-bold truncate" x-text=" projectTitle || 'New Project' "></h2>
+                            <button @click="addProject = !addProject"
+                                class="text-[#929EAE] bg-transparent hover:bg-[#AAD2BA]/20 hover:text-black p-1.5 rounded-lg ml-auto inline-flex">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                                    <path fill="currentColor" fill-rule="evenodd"
+                                        d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884L7.116 8z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        {{-- Modal Body --}}
+                        <form id="projectForm" onkeydown="return event.key != 'Enter';"
+                            action="{{ route('proma-tasks') }}" class="w-full px-4 py-4 space-y-4">
+                            {{-- Project Name --}}
+                            <div class="font-semibold text-sm space-y-1.5">
+                                <label for="projectTitle">Project Title</label>
+                                <div>
+                                    <input
+                                        class="border-2 border-[#929EAE] text-[#1B212D] p-2.5 focus:outline-none rounded-md w-full"
+                                        name="projectTitle" id="projectTitle" type="text" data-rules='["required"]'
+                                        x-ref="inputProjectTitle" x-model="projectTitle">
+                                    {{-- <span x-show=" !projectTitle " class="text-red-400">Project title is
+                                        required</span> --}}
+                                </div>
+                            </div>
+                            {{-- Privacy --}}
+                            <div class="font-semibold text-sm space-y-1.5">
+                                <label for="privacy">Privacy</label>
+                                <select name="privacy" id="privacy"
+                                    class="border-2 border-[#929EAE] p-2.5 rounded-md w-full">
+                                    <option value="Public">Public to non-members</option>
+                                    <option value="Private">Private to project members</option>
+                                </select>
+                            </div>
+                            {{-- Members --}}
+                            <div class="font-semibold text-sm space-y-1.5">
+                                <label for="">Project Members</label>
+                                <div x-data="{ projectMember: '', placeholderText: 'Add member via email' }" class=" border-2 border-[#929EAE] flex justify-between gap-x-1 
+                                py-2 px-2.5 rounded-md w-full">
+                                    {{-- template --}}
+                                    <div x-data="projectMembers()"
+                                        class="flex flex-wrap items-center gap-y-1 max-h-[250px] overflow-y-auto scrollbar-thin  scrollbar-thumb-gray-400 scrollbar-track-gray-200 gap-x-1 w-full">
+                                        <template x-for="(member, index) in members" :key="member.id">
+                                            <div
+                                                class="flex items-center gap-x-1 pr-1 py-0 text-[#3E6766] bg-[#AAD2BA]/20 rounded-xl">
+                                                <img src="{{ asset('images/Tasks/member1.png') }}" alt="memberFace">
+                                                {{-- <div class="bg-blue-400 w-[30px] h-[30px] rounded-full"></div> --}}
+                                                <span x-text="member.memberEmail"></span>
+                                                <button @click="removeMember(member)"
+                                                    class="bg-transparent text-[#929EAE] hover:bg-[#89C09F] hover:text-white p-1 rounded-full"
+                                                    type="button">
+                                                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                                        role="img" preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill="currentColor" fill-rule="evenodd"
+                                                            d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884L7.116 8z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </template>
+                                        <input
+                                            @keydown.enter="addMember(projectMember); projectMember = ''; placeholderText = '' "
+                                            x-model="projectMember" size="4" class="flex-grow flex focus:outline-none "
+                                            :placeholder="placeholderText" type="text">
+                                    </div>
+                                    <svg class="text-[#929EAE] w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 28 28">
+                                        <path fill="currentColor"
+                                            d="M17.754 11c.966 0 1.75.784 1.75 1.75v6.749a5.501 5.501 0 0 1-11.002 0V12.75c0-.966.783-1.75 1.75-1.75h7.502ZM3.75 11l4.382-.002a2.73 2.73 0 0 0-.621 1.532l-.01.22v6.749c0 1.133.291 2.199.8 3.127A4.501 4.501 0 0 1 2 18.499V12.75A1.751 1.751 0 0 1 3.751 11Zm16.124-.002L24.25 11c.966 0 1.75.784 1.75 1.75v5.75a4.5 4.5 0 0 1-6.298 4.127l.056-.102c.429-.813.69-1.729.738-2.7l.008-.326V12.75c0-.666-.237-1.276-.63-1.752ZM14 3a3.5 3.5 0 1 1 0 7a3.5 3.5 0 0 1 0-7Zm8.003 1a3 3 0 1 1 0 6a3 3 0 0 1 0-6ZM5.997 4a3 3 0 1 1 0 6a3 3 0 0 1 0-6Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <input
+                                class="bg-[#89C09F] hover:bg-[#64c48a] text-white font-semibold text-sm p-3 cursor-pointer w-full rounded-md transition duration-150 ease-linear"
+                                type="submit" value="Create">
+
+                        </form>
+                    </div>
+                </div>
                 <button
                     class="border-2 border-[#929EAE] text-[#929EAE] hidden md:flex items-center gap-x-4 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
                     <span>Sort by</span>
@@ -53,7 +153,7 @@
                 <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
                     <button @click=" tabledProjects = true "
                         :class=" tabledProjects ? 'bg-[#89C09F]' : 'bg-[#AAD2BA]/10 text-[#929EAE]' "
-                        class="  p-2 rounded-md cursor-pointer transition duration-300 ease-linear">
+                        class="p-2 transition duration-300 ease-linear rounded-md cursor-pointer ">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -63,7 +163,7 @@
                     </button>
                     <button @click=" tabledProjects = false "
                         :class=" tabledProjects ? 'bg-[#AAD2BA]/10 text-[#929EAE]' : 'bg-[#89C09F]' "
-                        class=" p-2 rounded-md cursor-pointer transition duration-300 ease-linear">
+                        class="p-2 transition duration-300 ease-linear rounded-md cursor-pointer ">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -78,11 +178,11 @@
     {{-- Teams --}}
     <div class="{{ Request::is('proma-teams') ? 'flex w-full' : 'hidden' }}">
         <div class="flex items-center justify-between w-full">
-            <h1 class="font-bold text-base">Teams</h1>
+            <h1 class="text-base font-bold">Teams</h1>
             <div x-data="{ dropTeamStructure : false }" class="flex items-center gap-x-4">
-                <div class="flex relative">
+                <div class="relative flex">
                     {{-- Team Selector --}}
-                    <div class="flex relative">
+                    <div class="relative flex">
                         {{-- Modal --}}
                         <div x-cloak :class=" [(dropTeamStructure ? 'flex' : 'hidden')] "
                             class="absolute flex right-0 top-0 bg-white border-2 border-[#929EAE] font-semibold text-sm text-[#929EAE]  flex-col gap-y-2 p-4 w-[170px]  rounded-lg z-50">
@@ -120,14 +220,41 @@
     {{-- Messages --}}
     <div class="{{ Request::is('proma-messages') ? 'flex w-full' : 'hidden' }}">
         <div class="flex items-center w-full">
-            <h1 class="font-bold text-base">Messages</h1>
+            <h1 class="text-base font-bold">Messages</h1>
         </div>
     </div>
     {{-- Settings --}}
     {{-- Messages --}}
     <div class="{{ Request::is('proma-settings') ? 'flex w-full' : 'hidden' }}">
         <div class="flex items-center w-full">
-            <h1 class="font-bold text-base">Settings</h1>
+            <h1 class="text-base font-bold">Settings</h1>
         </div>
     </div>
 </div>
+
+<script>
+    function projectMembers() {
+        return {
+            members: [],
+            addMember(projectMember) {
+                if(projectMember.match(/^\S+@\S+\.\S+$/) ) {
+                    this.members.push({
+                        id: this.members.length + 1,
+                        memberEmail: projectMember
+                    })
+                }
+            },
+            removeMember(member) {
+                this.members.splice(this.members.indexOf(member), 1);
+            }
+        }
+    }
+
+    // document.getElementById("projectForm").onkeypress = function(e) {
+    //     var key = e.charCode || e.keyCode || 0;     
+    //     if (key == 13) {
+    //         e.preventDefault();
+    //     }
+    // } 
+
+</script>

@@ -2,13 +2,13 @@
 @section('register-content')
 
 <div
-    class="bg-transparent absolute flex items-center justify-center w-full h-full transition-all duration-300 ease-linear">
+    class="bg-transparent absolute flex sm:items-center justify-center w-full h-full transition-all duration-300 ease-linear">
     <div
-        class="bg-white flex flex-col items-center mt-2 sm:mt-0 gap-y-4 p-8 w-full max-w-[350px] sm:max-w-[375px] h-[560px] shadow-lg rounded-xl">
+        class="bg-white flex flex-col items-center mt-20 sm:mt-0 gap-y-4 p-8 w-full max-w-[350px] sm:max-w-[375px] h-[560px] shadow-lg rounded-xl">
         {{-- Header --}}
         <div class="flex flex-col items-center gap-y-4 px-4 w-full">
             <h1 class="font-extrabold text-3xl">Sign Up</h1>
-            <h2 class="font-semibold text-[0.7rem] sm:text-sm text-center">Create an account and start managing your
+            <h2 class="font-semibold text-[0.7rem] sm:text-sm text-center">Create an account and start managing
                 projects with your
                 team.</h2>
         </div>

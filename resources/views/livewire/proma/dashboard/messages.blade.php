@@ -3,7 +3,7 @@
     {{-- Header --}}
     <div class="flex items-center justify-between w-full max-w-[330px]">
         <h2 class="font-bold text-sm">Messages</h2>
-        <a href="" class="font-bold text-[#3E6766] text-xs">
+        <a href="{{ route('proma-messages') }}" class="font-bold text-[#3E6766] text-xs">
             <span>View All</span>
         </a>
     </div>

@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- Alphine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- Popper --}}
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script>
+        const button = document.querySelector('#button');
+        const tooltip = document.querySelector('#tooltip');
+        const popperInstance = Popper.createPopper(button, tooltip);
+    </script>
+    {{-- flowbite --}}
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
     {{-- Animate CSS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 

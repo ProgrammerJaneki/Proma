@@ -11,7 +11,7 @@
             <h2 class="font-semibold text-sm text-center">
                 {{-- Create an account and start managing your projects with your
                 team. --}}
-                Welcome Back! Enter your details and connect with your team.
+                Welcome back! Enter your details and connect with your team.
             </h2>
         </div>
         {{-- Form --}}
