@@ -34,14 +34,11 @@
          <div class="flex items-center flex-wrap mt-4 gap-x-2">
             <template x-for="(project, index) in projects" :key="project.id">
                <div class="flex items-center p-2 bg-white rounded-md gap-x-2 ring-2">
-                  {{-- <p>Hey</p> --}}
                   <p class="" x-text="project.projectTitle"></p>
                   <button @click="removeProject(project)" class="p-1 bg-red-200">&times;</button>
                </div>
             </template>
          </div>
-         {{-- <button class="p-2 mt-4 bg-blue-200 rounded-md" type="button"
-            @click="addProject($refs.projectValue.value); projectName = '' ">Submit</button> --}}
       </div>
    </div>
 
@@ -63,6 +60,29 @@
          }
       }
    }
+
+   <div x-data="tabs()" class="flex flex-col gap-y-4">
+
+      <div class="flex gap-x-2">
+         <template x-for="tab in tabs" :key="tab.id">
+            <button :class="{'active': activeTab === tab.id}" @click="activeTab = tab.id" x-text="tab.title"
+               class="p-2 ml-4 bg-purple-200 rounded-md "></button>
+         </template>
+
+      </div>
+      <div class="flex flex-col gap-y-4">
+
+         <template x-for="tab in tabs" :key="tab.id">
+            <div x-show="activeTab === tab.id">
+               <p x-text="tab.text"></p>
+            </div>
+         </template>
+
+      </div>
+
+   </div>
+
+
    function tabs() {
          return {
             activeTab: 0,

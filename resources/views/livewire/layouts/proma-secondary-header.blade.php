@@ -31,8 +31,9 @@
         <div class="flex items-center justify-between w-full">
             <h1 class="text-base font-bold">Projects</h1>
             <div class="flex items-center gap-x-4">
-                <button @click="addProject = !addProject; $nextTick(() => { $refs.inputProjectTitle.focus(); }); "
-                    class="bg-[#89C09F] border-2 hidden md:flex text-white font-semibold text-xs py-2 px-4 shadow-md rounded-md">
+                <button
+                    class="bg-[#89C09F] hover:bg-[#64C48A] border-2 flex text-white font-semibold text-xs py-2 px-4 shadow-md transition duration-100 ease-linear rounded-md"
+                    @click="addProject = !addProject; $nextTick(() => { $refs.inputProjectTitle.focus(); }); ">
                     <span>Add Project</span>
                 </button>
 
@@ -78,11 +79,11 @@
                                 </div>
                             </div>
                             {{-- Privacy --}}
-                            <div class="font-semibold text-sm space-y-1.5">
+                            <div class="font-semibold flex flex-col text-sm space-y-1.5">
                                 <label for="privacy">Privacy</label>
                                 <select name="privacy" id="privacy"
                                     class="border-2 border-[#929EAE] p-2.5 rounded-md w-full">
-                                    <option value="Public">Public to non-members</option>
+                                    <option class="w-[200px]" value="Public">Public to non-members</option>
                                     <option value="Private">Private to project members</option>
                                 </select>
                             </div>
@@ -98,7 +99,6 @@
                                             <div
                                                 class="flex items-center gap-x-1 pr-1 py-0 text-[#3E6766] bg-[#AAD2BA]/20 rounded-xl">
                                                 <img src="{{ asset('images/Tasks/member1.png') }}" alt="memberFace">
-                                                {{-- <div class="bg-blue-400 w-[30px] h-[30px] rounded-full"></div> --}}
                                                 <span x-text="member.memberEmail"></span>
                                                 <button @click="removeMember(member)"
                                                     class="bg-transparent text-[#929EAE] hover:bg-[#89C09F] hover:text-white p-1 rounded-full"
@@ -130,7 +130,6 @@
                             <input
                                 class="bg-[#89C09F] hover:bg-[#64c48a] text-white font-semibold text-sm p-3 cursor-pointer w-full rounded-md transition duration-150 ease-linear"
                                 type="submit" value="Create">
-
                         </form>
                     </div>
                 </div>
