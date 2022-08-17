@@ -64,42 +64,109 @@
             </div>
             {{-- Profile --}}
             <div class="flex items-center gap-2">
-                <dif class="flex flex-col font-semibold text-right">
+                <dif class="flex flex-col font-medium text-right">
                     <span class="text-sm">Jannel Revilla</span>
                     <span class="text-xs">Intern</span>
                 </dif>
                 <button @click=" showProfile = !showProfile " class="text-[#929EAE] relative flex items-center gap-1">
                     {{-- Profile Modal --}}
                     <div :class=" showProfile ? 'flex' : 'hidden' "
-                        class="flex-col absolute bg-white border-2 border-[#929EAE] font-semibold text-[#929EAE] text-sm top-10 right-0 p-4 z-40 w-[200px] h-[280px] rounded-lg">
+                        class="flex-col absolute bg-white border-2 border-[#F5F5F5] font-semibold text-[#929EAE] text-sm top-10 right-0 z-40 w-[180px]  rounded-sm">
                         {{-- Header --}}
-                        <div class="flex items-center w-full pb-2 gap-x-2">
-                            <img src="{{ asset('images/jannel.png') }}" alt="">
-                            {{-- <div class="bg-red-200 w-[40px] h-[40px] rounded-full"></div> --}}
+                        <div class="flex items-center w-full py-2 px-4 gap-x-2">
+                            <img class="max-w-[28px] max-h-[28px]" src="{{ asset('images/jannel.png') }}" alt="">
                             <div class="flex flex-col justify-center text-left ">
-                                <span>Jannel Revilla</span>
-                                <span class="">UI/UX Intern</span>
+                                <span class="whitespace-nowrap">Jannel Revilla</span>
+                                <span class="whitespace-nowrap text-xs">UI/UX Intern</span>
                             </div>
                         </div>
                         {{-- Middle --}}
-                        <div
-                            class="border-y-2 border-[#F5F5F5] items-start text-base flex flex-col gap-y-2 py-2 w-full">
-                            <a href=""><span
-                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Profile</span></a>
-                            <a href="{{ route('proma-projects') }}"><span
-                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Projects</span></a>
-                            <a href="{{ route('proma-teams') }}"><span
-                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Teams</span></a>
-                            <a href="{{ route('proma-messages') }}"><span
-                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Messages</span></a>
-                            <a href="{{ route('proma-settings') }}"><span
+                        <div class="border-y-2 border-[#F5F5F5] flex flex-col w-full">
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full" href="">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                                    <g fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M24 42c9.941 0 18-8.059 18-18S33.941 6 24 6S6 14.059 6 24s8.059 18 18 18Zm0 2c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"
+                                            clip-rule="evenodd" />
+                                        <path
+                                            d="M12 35.63c0-1.033.772-1.906 1.8-2.02c7.715-.854 12.72-.777 20.418.019a1.99 1.99 0 0 1 1.108 3.472c-9.085 7.919-14.277 7.81-22.686.008c-.41-.38-.64-.92-.64-1.478Z" />
+                                        <path fill-rule="evenodd"
+                                            d="M34.115 34.623c-7.637-.79-12.57-.864-20.206-.019A1.028 1.028 0 0 0 13 35.631c0 .286.119.557.32.745c4.168 3.866 7.326 5.613 10.413 5.624c3.098.011 6.426-1.722 10.936-5.652a.99.99 0 0 0-.554-1.724ZM13.69 32.616c7.796-.863 12.874-.785 20.632.018a2.99 2.99 0 0 1 1.662 5.221c-4.575 3.988-8.385 6.16-12.257 6.145c-3.883-.014-7.525-2.223-11.766-6.158A3.018 3.018 0 0 1 11 35.63a3.028 3.028 0 0 1 2.69-3.015Z"
+                                            clip-rule="evenodd" />
+                                        <path d="M32 20a8 8 0 1 1-16 0a8 8 0 0 1 16 0Z" />
+                                        <path fill-rule="evenodd"
+                                            d="M24 26a6 6 0 1 0 0-12a6 6 0 0 0 0 12Zm0 2a8 8 0 1 0 0-16a8 8 0 0 0 0 16Z"
+                                            clip-rule="evenodd" />
+                                    </g>
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Profile
+                                </span>
+                            </a>
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full"
+                                href="{{ route('proma-projects') }}">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                    <path fill="currentColor"
+                                        d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM368 744c0 4.4-3.6 8-8 8h-80c-4.4 0-8-3.6-8-8V280c0-4.4 3.6-8 8-8h80c4.4 0 8 3.6 8 8v464zm192-280c0 4.4-3.6 8-8 8h-80c-4.4 0-8-3.6-8-8V280c0-4.4 3.6-8 8-8h80c4.4 0 8 3.6 8 8v184zm192 72c0 4.4-3.6 8-8 8h-80c-4.4 0-8-3.6-8-8V280c0-4.4 3.6-8 8-8h80c4.4 0 8 3.6 8 8v256z" />
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Projects
+                                </span>
+                            </a>
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full"
+                                href="{{ route('proma-teams') }}">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <circle cx="20.288" cy="8.344" r="1.707" fill="currentColor" />
+                                    <path fill="currentColor"
+                                        d="M18.581 11.513h3.413v3.656c0 .942-.765 1.706-1.707 1.706h-1.706v-5.362zM2.006 4.2v15.6l11.213 1.979V2.221L2.006 4.2zm8.288 5.411l-1.95.049v5.752H6.881V9.757l-1.949.098V8.539l5.362-.292v1.364zm3.899.439v8.288h1.95c.808 0 1.463-.655 1.463-1.462V10.05h-3.413zm1.463-4.875c-.586 0-1.105.264-1.463.673v2.555c.357.409.877.673 1.463.673a1.95 1.95 0 0 0 0-3.901z" />
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Teams
+                                </span>
+                            </a>
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full"
+                                href="{{ route('proma-messages') }}">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="-2 -2.5 24 24">
+                                    <path fill="currentColor"
+                                        d="M3.656 17.979A1 1 0 0 1 2 17.243V15a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H8.003l-4.347 2.979zM16 10.017a7.136 7.136 0 0 0 0 .369v-.37c.005-.107.006-1.447.004-4.019a3 3 0 0 0-3-2.997H5V2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2v2.243a1 1 0 0 1-1.656.736L16 13.743v-3.726z" />
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Messages
+                                </span>
+                            </a>
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full"
+                                href="{{ route('proma-settings') }}">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M495.9 166.6c3.3 8.6.5 18.3-6.3 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4c0 8.6-.6 17.1-1.7 25.4l43.3 39.4c6.8 6.3 9.6 16 6.3 24.6c-4.4 11.9-9.7 23.4-15.7 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.3c-6 7.1-15.7 9.6-24.5 6.8l-55.7-17.8c-13.4 10.3-29.1 18.9-44 25.5l-12.5 57.1c-2 9-9 15.4-18.2 17.8c-13.8 2.3-28 3.5-43.4 3.5c-13.6 0-27.8-1.2-41.6-3.5c-9.2-2.4-16.2-8.8-18.2-17.8l-12.5-57.1c-15.8-6.6-30.6-15.2-44-25.5l-55.66 17.8c-8.84 2.8-18.59.3-24.51-6.8c-8.11-9.9-15.51-20.3-22.11-31.3l-4.68-8.1c-6.07-10.9-11.35-22.4-15.78-34.3c-3.24-8.6-.51-18.3 6.35-24.6l43.26-39.4C64.57 273.1 64 264.6 64 256c0-8.6.57-17.1 1.67-25.4l-43.26-39.4c-6.86-6.3-9.59-15.9-6.35-24.6c4.43-11.9 9.72-23.4 15.78-34.3l4.67-8.1c6.61-11 14.01-21.4 22.12-31.25c5.92-7.15 15.67-9.63 24.51-6.81l55.66 17.76c13.4-10.34 28.2-18.94 44-25.47l12.5-57.1c2-9.08 9-16.29 18.2-17.82C227.3 1.201 241.5 0 256 0s28.7 1.201 42.5 3.51c9.2 1.53 16.2 8.74 18.2 17.82l12.5 57.1c14.9 6.53 30.6 15.13 44 25.47l55.7-17.76c8.8-2.82 18.5-.34 24.5 6.81c8.1 9.85 15.5 20.25 22.1 31.25l4.7 8.1c6 10.9 11.3 22.4 15.7 34.3zM256 336c44.2 0 80-35.8 80-80.9c0-43.3-35.8-80-80-80s-80 36.7-80 80c0 45.1 35.8 80.9 80 80.9z" />
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Settings
+                                </span>
+                            </a>
+                            {{-- <a href="{{ route('proma-settings') }}"><span
                                     class="hover:text-[#89C09F] transition duration-150 ease-linear">Settings</span></a>
+                            --}}
                         </div>
                         {{-- Bottom --}}
-                        <div class="flex items-center w-full py-2 text-base">
-                            <a href="{{ route('proma-signin') }}"><span
-                                    class="hover:text-[#89C09F] transition duration-150 ease-linear">Sign
-                                    out</span></a>
+                        <div class="flex items-center w-full ">
+                            <a class="flex items-center gap-x-2 py-2 px-4 hover:bg-[#FAFAFA] w-full"
+                                href="{{ route('proma-signin') }}">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="4"
+                                        d="M23.992 6H6v36h18m9-9l9-9l-9-9m-17 8.992h26" />
+                                </svg>
+                                <span class="hover:bg-[#FAFAFA] transition duration-150 ease-linear">
+                                    Sign out
+                                </span>
+                            </a>
                         </div>
                     </div>
                     <img class="w-9 h-9" src="{{ asset('images/jannel.png') }}" alt="me">
@@ -137,7 +204,7 @@
             </div>
             {{-- Links --}}
             <div x-cloak :class=" dropDown ? 'flex' : 'hidden' "
-                class="bg-[#FFFFFF] border-2 border-[#929EAE] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 rounded-lg">
+                class="bg-[#FFFFFF] border-2 border-[#F5F5F5] font-bold text-[#929EAE] absolute -top-5 right-0 z-50 flex-col gap-y-2 w-[200px] py-4 px-4 rounded-lg">
                 <div class="flex justify-between w-full">
                     <div class="font-bold text-[#929EAE] flex flex-col gap-y-2">
                         <a class="hover:text-[#3E6766]" href="">Profile</a>

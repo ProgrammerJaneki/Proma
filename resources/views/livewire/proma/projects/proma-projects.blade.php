@@ -140,7 +140,7 @@
                                             </button>
                                             {{-- Delete project --}}
                                             <button @click="deleteProject(detail)"
-                                                class="bg-white hover:bg-[#FAFAFA] text-[#E69597] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
+                                                class="bg-white hover:bg-[#E69597]/10 text-[#E69597] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
                                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                     role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">

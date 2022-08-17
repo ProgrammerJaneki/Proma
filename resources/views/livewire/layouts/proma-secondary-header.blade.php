@@ -135,14 +135,86 @@
                         </form>
                     </div>
                 </div>
-                <button
-                    class="border-2 border-[#929EAE] text-[#929EAE] hidden md:flex items-center gap-x-2 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
-                    <span>Sort by</span>
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                        <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
-                    </svg>
-                </button>
+                {{-- Sort Switcher --}}
+                <div x-data="{showSort : false, noSort : true, thisWeekSort : false, progressSort : false}"
+                    class="relative">
+                    <button @click="showSort = !showSort"
+                        :class="thisWeekSort || progressSort ? 'bg-[#89C09F]/20 text-[#89C09F]' : '' " class="hover:ring-2 ring-[#89C09F] hover:border-transparent border-2 border-[#F5F5F5] text-[#929EAE] hidden md:flex items-center gap-x-8 font-semibold 
+                        text-xs p-2 rounded-md transition duration-150 ease-linear">
+                        {{-- Sorted by the ff: --}}
+                        <template x-if="!noSort">
+                            <div class="flex gap-x-4">
+                                <template x-if="thisWeekSort">
+                                    <span>Sort by: This week</span>
+                                </template>
+                                <template x-if="progressSort">
+                                    <span>Sort by: Current progress</span>
+                                </template>
+                                <svg @click="thisWeekSort = false; progressSort = false; noSort = true"
+                                    class="w-4 h-4 z-10" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                    <path fill="currentColor"
+                                        d="M764.288 214.592L512 466.88L259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512L214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z" />
+                                </svg>
+                            </div>
+                        </template>
+                        {{-- Default --}}
+                        <template x-if="!thisWeekSort && !progressSort">
+                            <div class="flex gap-x-8">
+                                <span>Sort by</span>
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                    <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
+                                </svg>
+                            </div>
+                        </template>
+                    </button>
+                    <template x-if="showSort">
+                        <div
+                            class="absolute right-0 z-50 border-[1px] border-[#F5F5F5] bg-white font-semibold text-[#929EAE] text-xs w-[150px] rounded-sm">
+                            {{-- None --}}
+                            <button
+                                @click="noSort = true; thisWeekSort = false; progressSort = false; showSort = !showSort"
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 ml-auto w-full transition duration-150 ease-linear">
+                                <template x-if="noSort">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" d="m4 12l6 6L20 6" />
+                                    </svg>
+                                </template>
+                                <span :class="noSort ? 'pl-0' : 'pl-6' ">None</span>
+                            </button>
+                            {{-- this week --}}
+                            <button
+                                @click="thisWeekSort = true; noSort = false; progressSort = false; showSort = !showSort"
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 ml-auto w-full transition duration-150 ease-linear">
+                                <template x-if="thisWeekSort">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" d="m4 12l6 6L20 6" />
+                                    </svg>
+                                </template>
+                                <span :class="thisWeekSort ? 'pl-0' : 'pl-6' ">Due this week</span>
+                            </button>
+                            {{-- next week --}}
+                            <button
+                                @click="progressSort = true; noSort = false; thisWeekSort = false; showSort = !showSort"
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 ml-auto w-full transition duration-150 ease-linear">
+                                <template x-if="progressSort">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" d="m4 12l6 6L20 6" />
+                                    </svg>
+                                </template>
+                                <span :class="progressSort ? 'pl-0' : 'pl-6' ">Current progress</span>
+                            </button>
+                        </div>
+                    </template>
+                </div>
                 <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
                     <button @click=" tabledProjects = true "
                         :class=" tabledProjects ? 'bg-[#89C09F]' : 'bg-[#AAD2BA]/10 text-[#929EAE]' "
@@ -180,11 +252,10 @@
             </div>
             <div class="flex items-center gap-x-4">
                 <button
-                    class="bg-[#89C09F] hover:bg-[#64C48A] border-2 flex text-white font-semibold text-xs py-2 px-4 shadow-md transition duration-100 ease-linear rounded-md"
+                    class="bg-[#89C09F] hover:bg-[#64C48A] flex text-white font-semibold text-xs py-2 px-4 transition duration-150 ease-linear rounded-md"
                     @click="addProject = !addProject; $nextTick(() => { $refs.inputProjectTitle.focus(); }); ">
                     <span>Add Project</span>
                 </button>
-
                 {{-- ADD PROJECT MODAL --}}
                 {{-- Modal Background --}}
                 <div x-cloak x-show="addProject"
@@ -283,35 +354,158 @@
                         </form>
                     </div>
                 </div>
-                <button
-                    class="border-2 border-[#929EAE] text-[#929EAE] hidden md:flex items-center gap-x-2 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
-                    <span>Filter by</span>
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                        <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
-                    </svg>
-                </button>
-                <div class="bg-[#AAD2BA]/10 flex items-center rounded-md">
-                    <button @click=" tabledProjects = true "
-                        :class=" tabledProjects ? 'bg-[#89C09F]' : 'bg-[#AAD2BA]/10 text-[#929EAE]' "
-                        class="p-2 transition duration-300 ease-linear rounded-md cursor-pointer ">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
-                            <path fill="currentColor" fill-rule="evenodd"
-                                d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2a1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2a1 1 0 0 0 0 2z" />
-                        </svg>
+                {{-- Filter Switcher --}}
+                <div x-data="{showFilter : false, showDefault : true, filterMyTasks : false, filterThisWeek : false, filterNextWeek : false}"
+                    class="relative">
+                    <button @click="showFilter = !showFilter"
+                        :class=" !showDefault ? 'bg-[#89C09F]/20 text-[#89C09F]' : '' " class="hover:ring-2 ring-[#89C09F] hover:border-transparent border-2 border-[#F5F5F5] text-[#929EAE] hidden md:flex items-center font-semibold 
+                        text-xs p-2 rounded-md transition duration-150 ease-linear">
+                        {{-- Filtered by the ff: --}}
+                        <template x-if="!showDefault">
+                            <div class="flex gap-x-4">
+                                <template x-if="filterMyTasks">
+                                    <div>
+                                        <span>Filter by: My tasks</span>
+                                    </div>
+                                </template>
+                                <template x-if="filterThisWeek">
+                                    <div>
+                                        <span>Filter by: This week</span>
+                                    </div>
+                                </template>
+                                <template x-if="filterNextWeek">
+                                    <div>
+                                        <span>Filter by: Next week</span>
+                                    </div>
+                                </template>
+                                {{-- Remove filter --}}
+                                <svg @click="showDefault = true" class="w-4 h-4 z-10" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                    <path fill="currentColor"
+                                        d="M764.288 214.592L512 466.88L259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512L214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z" />
+                                </svg>
+                            </div>
+                        </template>
+                        {{-- Default State --}}
+                        <template x-if="showDefault">
+                            <div class="flex gap-x-8">
+                                <span>Filter by</span>
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                                    <path fill="currentColor" d="m5 6l5 5l5-5l2 1l-7 7l-7-7z" />
+                                </svg>
+                            </div>
+                        </template>
                     </button>
-                    <button @click=" tabledProjects = false "
-                        :class=" tabledProjects ? 'bg-[#AAD2BA]/10 text-[#929EAE]' : 'bg-[#89C09F]' "
-                        class="p-2 transition duration-300 ease-linear rounded-md cursor-pointer ">
-                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M8 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm0 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm8-14a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm4-10a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm2 4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-2 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Z" />
-                        </svg>
-                    </button>
+                    <template x-if="showFilter">
+                        <div
+                            class="absolute right-0 z-50 border-[1px] border-[#F5F5F5] bg-white font-semibold text-[#929EAE] text-xs w-[150px] rounded-sm">
+                            {{-- My tasks --}}
+                            <button
+                                @click="filterMyTasks = true; filterThisWeek = false; filterNextWeek = false; showDefault = false; showFilter = false "
+                                :class=" filterMyTasks ? 'bg-[#F5F5F5]' : '' "
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 w-full transition duration-150 ease-linear">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <g fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="7" r="5" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 14h.352a3 3 0 0 1 2.976 2.628l.391 3.124A2 2 0 0 1 18.734 22H5.266a2 2 0 0 1-1.985-2.248l.39-3.124A3 3 0 0 1 6.649 14H7" />
+                                    </g>
+                                </svg>
+                                <span>Only my tasks</span>
+                            </button>
+                            {{-- this week --}}
+                            <button
+                                @click="filterThisWeek = true; filterMyTasks = false; filterNextWeek = false; showDefault = false; showFilter = false "
+                                :class=" filterThisWeek ? 'bg-[#F5F5F5]' : '' "
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 w-full transition duration-150 ease-linear">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                    <path fill="currentColor"
+                                        d="M32 13.22V30H4V8h3V6H3.75A1.78 1.78 0 0 0 2 7.81v22.38A1.78 1.78 0 0 0 3.75 32h28.5A1.78 1.78 0 0 0 34 30.19V12.34a7.45 7.45 0 0 1-2 .88Z"
+                                        class="clr-i-outline--badged clr-i-outline-path-1--badged" />
+                                    <path fill="currentColor" d="M8 14h2v2H8z"
+                                        class="clr-i-outline--badged clr-i-outline-path-2--badged" />
+                                    <path fill="currentColor" d="M14 14h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-3--badged" />
+                                    <path fill="currentColor" d="M20 14h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-4--badged" />
+                                    <path fill="currentColor" d="M26 14h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-5--badged" />
+                                    <path fill="currentColor" d="M8 19h2v2H8z"
+                                        class="clr-i-outline--badged clr-i-outline-path-6--badged" />
+                                    <path fill="currentColor" d="M14 19h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-7--badged" />
+                                    <path fill="currentColor" d="M20 19h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-8--badged" />
+                                    <path fill="currentColor" d="M26 19h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-9--badged" />
+                                    <path fill="currentColor" d="M8 24h2v2H8z"
+                                        class="clr-i-outline--badged clr-i-outline-path-10--badged" />
+                                    <path fill="currentColor" d="M14 24h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-11--badged" />
+                                    <path fill="currentColor" d="M20 24h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-12--badged" />
+                                    <path fill="currentColor" d="M26 24h2v2h-2z"
+                                        class="clr-i-outline--badged clr-i-outline-path-13--badged" />
+                                    <path fill="currentColor" d="M10 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z"
+                                        class="clr-i-outline--badged clr-i-outline-path-14--badged" />
+                                    <path fill="currentColor" d="M22.5 6H13v2h9.78a7.49 7.49 0 0 1-.28-2Z"
+                                        class="clr-i-outline--badged clr-i-outline-path-15--badged" />
+                                    <circle cx="30" cy="6" r="5" fill="currentColor"
+                                        class="clr-i-outline--badged clr-i-outline-path-16--badged clr-i-badge" />
+                                    <path fill="none" d="M0 0h36v36H0z" />
+                                </svg>
+                                <span>Due this week</span>
+                            </button>
+                            {{-- next week --}}
+                            <button
+                                @click="filterNextWeek = true; filterMyTasks = false; filterThisWeek = false; showDefault = false; showFilter = false "
+                                :class=" filterNextWeek ? 'bg-[#F5F5F5] : ' "
+                                class="flex items-center gap-x-2 hover:bg-[#F5F5F5] p-2.5 w-full transition duration-150 ease-linear">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                    <path fill="currentColor"
+                                        d="M32.25 6H29v2h3v22H4V8h3V6H3.75A1.78 1.78 0 0 0 2 7.81v22.38A1.78 1.78 0 0 0 3.75 32h28.5A1.78 1.78 0 0 0 34 30.19V7.81A1.78 1.78 0 0 0 32.25 6Z"
+                                        class="clr-i-outline clr-i-outline-path-1" />
+                                    <path fill="currentColor" d="M8 14h2v2H8z"
+                                        class="clr-i-outline clr-i-outline-path-2" />
+                                    <path fill="currentColor" d="M14 14h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-3" />
+                                    <path fill="currentColor" d="M20 14h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-4" />
+                                    <path fill="currentColor" d="M26 14h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-5" />
+                                    <path fill="currentColor" d="M8 19h2v2H8z"
+                                        class="clr-i-outline clr-i-outline-path-6" />
+                                    <path fill="currentColor" d="M14 19h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-7" />
+                                    <path fill="currentColor" d="M20 19h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-8" />
+                                    <path fill="currentColor" d="M26 19h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-9" />
+                                    <path fill="currentColor" d="M8 24h2v2H8z"
+                                        class="clr-i-outline clr-i-outline-path-10" />
+                                    <path fill="currentColor" d="M14 24h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-11" />
+                                    <path fill="currentColor" d="M20 24h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-12" />
+                                    <path fill="currentColor" d="M26 24h2v2h-2z"
+                                        class="clr-i-outline clr-i-outline-path-13" />
+                                    <path fill="currentColor" d="M10 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z"
+                                        class="clr-i-outline clr-i-outline-path-14" />
+                                    <path fill="currentColor" d="M26 10a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z"
+                                        class="clr-i-outline clr-i-outline-path-15" />
+                                    <path fill="currentColor" d="M13 6h10v2H13z"
+                                        class="clr-i-outline clr-i-outline-path-16" />
+                                    <path fill="none" d="M0 0h36v36H0z" />
+                                </svg>
+                                <span>Due next week</span>
+                            </button>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -345,9 +539,9 @@
                                 class="hover:text-[#89c094] text-left transition duration-150 ease-linear cursor-pointer">
                                 Marketing Team</button>
                         </div>
-                        <button @click=" dropTeamStructure = !dropTeamStructure; modalClicked = true "
-                            class="border-2 border-[#929EAE] text-[#929EAE] flex items-center gap-x-4 font-semibold text-xs py-2 px-4 shadow-md rounded-md">
-                            <span>Team</span>
+                        <button
+                            class="border-2 border-[#F5F5F5] text-[#929EAE] hidden md:flex items-center gap-x-8 font-semibold text-xs p-2 rounded-md">
+                            <span>Teams</span>
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
@@ -396,12 +590,4 @@
             },
         }
     }
-
-    // document.getElementById("projectForm").onkeypress = function(e) {
-    //     var key = e.charCode || e.keyCode || 0;     
-    //     if (key == 13) {
-    //         e.preventDefault();
-    //     }
-    // } 
-
 </script>
