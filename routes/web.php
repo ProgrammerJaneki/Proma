@@ -20,7 +20,7 @@ Route::view('/proma-messages', 'livewire/proma/messages/proma-messages')->name('
 Route::view('/proma-settings', 'livewire/proma/settings/proma-settings')->name('proma-settings');
 Route::view('/proma-signup', 'livewire/proma/register/proma-signup')->name('proma-signup');
 Route::view('/proma-signin', 'livewire/proma/register/proma-signin')->name('proma-signin');
-Route::view('/proma-tasks', 'livewire/proma/projects/tasks/proma-tasks')->name('proma-tasks');
+Route::view('proma-projects/proma-tasks', 'livewire/proma/projects/tasks/proma-tasks')->name('proma-tasks');
 
 // Route::get('/', function () {
 //     return view('welcome');

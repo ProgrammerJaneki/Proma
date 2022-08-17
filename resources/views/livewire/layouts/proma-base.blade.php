@@ -75,16 +75,16 @@
                     </button>
                 </a>
                 {{-- Project --}}
-                <a :class=" minPanel ? '{{ Request::is('proma-projects') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
+                <a :class=" minPanel ? '{{ Request::is('proma-projects*') ? 'group relative text-[#3E6766] flex items-center py-4 pr-0 w-full' : 
                 'relative group hover:text-[#3E6766] hover:font-bold transition duration-300 ease-in-out py-4 ' }}' : 
-                '{{ Request::is('proma-projects') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
+                '{{ Request::is('proma-projects*') ? 'lg:bg-[#AAD2BA]/10 relative flex py-4 lg:py-2 pr-0 lg:pr-3 rounded-r-full font-bold md:text-sm text-[#3E6766]' 
                 : 'relative group hover:text-[#3E6766] hover:font-bold lg:hover:bg-[#AAD2BA]/10 transition duration-300 ease-in-out flex font-semibold text-sm lg:hover:py-2 py-4 pr-0 lg:pr-3 rounded-r-full' }}' "
                     href="{{ route('proma-projects') }}">
                     {{-- Left Indicator --}}
                     <div
-                        :class=" minPanel ? '{{ Request::is('proma-projects') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        :class=" minPanel ? '{{ Request::is('proma-projects*') ? 'absolute flex items-center bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         'bg-[#3E6766] hidden group-hover:flex items-center top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl' }}'  : 
-                        '{{ Request::is('proma-projects') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
+                        '{{ Request::is('proma-projects*') ? 'absolute flex bg-[#3E6766] top-4 w-1 h-5 rounded-xl' :
                         ' bg-[#3E6766] hidden group-hover:flex top-4 transition-all duration-500 ease-in-out group-hover:absolute w-1 h-5 rounded-xl ' }}' ">
                     </div>
                     {{-- Icon --}}
@@ -101,8 +101,8 @@
                     {{-- Circle --}}
                     <button
                         class="bg-white hover:text-white hover:bg-[#3E6766] items-center p-2 transition-all duration-500 ease-in-out rounded-full"
-                        :class=" minPanel ? '{{ Request::is('proma-projects') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
-                        '{{ Request::is('proma-projects') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
+                        :class=" minPanel ? '{{ Request::is('proma-projects*') ? 'hidden group-hover:hidden' : 'hidden' }}' : 
+                        '{{ Request::is('proma-projects*') ? 'hidden lg:flex lg:group-hover:flex' : 'hidden lg:group-hover:flex' }}' ">
                         <svg class="font-bold w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">

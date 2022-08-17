@@ -5,18 +5,10 @@
 <div x-cloak :class="[(minPanel ? 'px-2 md:px-6' : 'px-6 lg:px-10'), (tabledProjects ? 'py-0 ' : 'py-5 ')] "
     class="bg-[#FAFAFA] flex justify-center h-full  w-full transition-all duration-300 ease-linear ">
     {{-- Floating View --}}
-    <div x-cloak x-data="{ enableScroll : false, editProjectDetails : false }"
+    <div x-cloak x-data="{ enableScroll : false, editProjectDetails : false, addMember : false }"
         :class=" tabledProjects ? 'hidden ' : 'flex ' "
-        class="flex gap-y-8   transition-all duration-300 ease-linear max-w-[1060px] max-h-[720px]">
+        class="flex gap-y-8 transition-all duration-300 ease-linear overflow-x-hidden scrollbar-thin max-w-[1060px] max-h-[720px]">
         <div class="flex flex-col gap-8 md:gap-y-6 w-full h-full transition-all duration-300 ease-linear">
-
-            {{-- Edit project details --}}
-            <div x-cloak x-show="editProjectDetails" @click="editProjectDetails = !editProjectDetails"
-                class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
-                tabindex="-1" aria-model="false" role="dialog">
-                <span class="bg-red-200">Hey</span>
-            </div>
-
             {{-- Top --}}
             <div class="flex flex-col gap-y-3 w-full ">
                 {{-- Header --}}
@@ -28,23 +20,91 @@
                 </div>
                 {{-- Contents --}}
                 <div class="flex items-center gap-x-2 w-full max-w-[1060px]">
-                    <div x-data="projectDetails()" {{--
-                        :class=" enableScroll ? 'overflow-x-auto scrollbar-thin' : 'hover:lg:overflow-x-auto' " --}}
-                        class="flex items-center py-4 gap-x-8 w-full  overflow-hidden hover:overflow-x-auto hover:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 ">
+                    <div x-data="projectDetails()"
+                        class="flex items-center py-4 gap-x-8 w-full  overflow-x-auto sm:overflow-x-visible sm:hover:overflow-x-auto sm:hover:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 ">
                         {{-- Box --}}
                         <template x-for="(detail, index) in details" :key="detail.id">
                             <div
                                 class="bg-white border-2 border-[#F5F5F5] flex flex-col p-4 min-w-[240px] w-[240px] h-[304px] shadow-md rounded-xl">
+                                {{-- MODAL | Edit project details --}}
+                                <div x-cloak x-show="editProjectDetails && activeProjectBox === detail.id"
+                                    class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
+                                    aria-model="false" role="dialog">
+                                    {{-- Modal Content --}}
+                                    <div x-show="editProjectDetails"
+                                        x-transition:enter="transition ease-out duration-150"
+                                        x-transition:enter-start="opacity-0 scale-90"
+                                        x-translation:enter-end="opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-150"
+                                        x-transition:leave-start="opacity-100 scale-100"
+                                        x-transition:leave-end="opacity-0 scale-90"
+                                        class="relative bg-white z-50  rounded-xl shadow w-[300px] sm:w-[450px]">
+                                        {{-- Header --}}
+                                        <div class="flex flex-col gap-y-1 py-2 px-4 border-b-0 border-[#F5F5F5] ">
+                                            {{-- <h2 class="font-bold text-3xl">Add members</h2> --}}
+                                            <button @click="editProjectDetails = !editProjectDetails"
+                                                class="text-[#929EAE] bg-transparent hover:bg-[#AAD2BA]/20 hover:text-black p-1.5 rounded-lg ml-auto inline-flex">
+                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                                    role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                                                    <path fill="currentColor" fill-rule="evenodd"
+                                                        d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884L7.116 8z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="sr-only">Close modal</span>
+                                            </button>
+                                            <h2 class="font-bold text-center text-xl">Project details</h2>
+                                        </div>
+                                        {{-- Edit Project Details --}}
+                                        <form action="" onkeydown="return event.key != 'Enter';"
+                                            class="w-full px-4 py-6 space-y-4">
+                                            {{-- Project Title --}}
+                                            <div class="font-semibold text-sm space-y-1.5">
+                                                <label class="font-bold" for="projectTitle">Project title</label>
+                                                <div>
+                                                    <input
+                                                        class="border-2 border-[#F5F5F5] text-[#1B212D] p-1.5 focus:ring-2 ring-[#89C09F] focus:border-transparent focus:outline-none rounded-md w-full"
+                                                        name="projectTitle" id="projectTitle" type="text"
+                                                        data-rules='["required"]' :value="detail.projectTitle">
+                                                </div>
+                                            </div>
+                                            {{-- Project Leader --}}
+                                            <div class="font-semibold text-sm space-y-1.5">
+                                                <label class="font-bold" for="projectTitle">Project leader</label>
+                                                <div>
+                                                    <input
+                                                        class="border-2 border-[#F5F5F5] text-[#1B212D] p-1.5 focus:ring-2 ring-[#89C09F] focus:border-transparent focus:outline-none rounded-md w-full"
+                                                        name="projectTitle" id="projectTitle" type="text"
+                                                        data-rules='["required"]' :value="detail.projectLeader">
+                                                </div>
+                                            </div>
+                                            {{-- Project Privacy --}}
+                                            <div class="font-semibold flex flex-col text-sm space-y-1.5">
+                                                <label class="font-bold" for="privacy">Privacy</label>
+                                                <select name="privacy" id="privacy"
+                                                    class="border-2 border-[#F5F5F5] p-2 rounded-md focus:ring-2 focus:border-transparent outline-none ring-[#89C09F] w-full">
+                                                    <option class="w-[200px]" value="Public">Public to non-members
+                                                    </option>
+                                                    <option value="Private">Private to project members</option>
+                                                </select>
+                                            </div>
+                                            {{-- Update --}}
+                                            <input
+                                                class="bg-[#89C09F] hover:bg-[#64c48a] text-white font-semibold text-sm p-2.5 cursor-pointer w-full rounded-md transition duration-150 ease-linear"
+                                                type="submit" value="Update">
+                                        </form>
+                                    </div>
+                                </div>
                                 {{-- Header --}}
                                 <div class="flex justify-between w-full ">
-                                    <img :src="detail.projectImage" alt="">
-                                    <div x-data="{showOptions : false}" @click="showOptions = !showOptions"
+                                    <a href="{{ route('proma-tasks') }}">
+                                        <img :src="detail.projectImage" alt="">
+                                    </a>
+                                    {{-- activeProjectBox allows only the current box's modal --}}
+                                    <div x-data="{showOptions : false}"
+                                        @click="showOptions = !showOptions; activeProjectBox = detail.id"
                                         class="relative flex  cursor-pointer">
-                                        {{-- Background Closer --}}
-                                        <div x-cloak x-show="showOptions"
-                                            class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-transparent"
-                                            tabindex="-1" aria-model="false" role="dialog">
-                                        </div>
+                                        {{-- Menu Button --}}
                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -55,6 +115,12 @@
                                                 <circle cx="8" cy="13.5" r=".75" />
                                             </g>
                                         </svg>
+                                        {{-- Modal Background Closer --}}
+                                        <div x-cloak x-show="showOptions"
+                                            class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-transparent"
+                                            tabindex="-1" aria-model="false" role="dialog">
+                                        </div>
+                                        {{-- MODAL | Menu Button Modal --}}
                                         <div x-show="showOptions" x-transition:enter="transition ease-out duration-150"
                                             x-transition:enter-start="opacity-0 scale-90"
                                             x-transition:enter-end="opacity-100 scale-100"
@@ -64,30 +130,17 @@
                                             class="border-2 border-[#F5F5F5] bg-white font-semibold text-sm absolute top-6 right-2 mr-auto rounded-sm shadow-sm w-[180px] z-50">
                                             {{-- Edit Project Details --}}
                                             <button @click="editProjectDetails = !editProjectDetails "
-                                                class="bg-white hover:bg-[#AAD2BA]/20 flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
+                                                class="bg-white hover:bg-[#FAFAFA] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
                                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                                                    role="img" preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 1024 1024">
+                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
                                                     <path fill="currentColor"
-                                                        d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z" />
+                                                        d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3l-362.7 362.6l-88.9 15.7l15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" />
                                                 </svg>
                                                 <span>Edit project details</span>
                                             </button>
-                                            {{-- Edit members --}}
-                                            <button
-                                                class="bg-white hover:bg-[#AAD2BA]/20 flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
-                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-                                                    role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                                                    <path fill="currentColor"
-                                                        d="M12.5 4.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Zm5 .5a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-13 2a2 2 0 1 0 0-4a2 2 0 0 0 0 4ZM6 9.25C6 8.56 6.56 8 7.25 8h5.5c.69 0 1.25.56 1.25 1.25V14a4 4 0 0 1-8 0V9.25Zm-1 0c0-.463.14-.892.379-1.25H3.25C2.56 8 2 8.56 2 9.25V13a3 3 0 0 0 3.404 2.973A4.983 4.983 0 0 1 5 14V9.25ZM15 14c0 .7-.144 1.368-.404 1.973A3 3 0 0 0 18 13V9.25C18 8.56 17.44 8 16.75 8h-2.129c.24.358.379.787.379 1.25V14Z" />
-                                                </svg>
-                                                <span>Edit members</span>
-                                            </button>
                                             {{-- Delete project --}}
                                             <button @click="deleteProject(detail)"
-                                                class="bg-white hover:bg-[#AAD2BA]/20 text-[#E69597] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
+                                                class="bg-white hover:bg-[#FAFAFA] text-[#E69597] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
                                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
                                                     role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -136,8 +189,9 @@
                                 <div class="flex items-center justify-between mt-auto">
                                     <div class="flex gap-x-1">
                                         <img :src="detail.membersImages" alt="">
-                                        <button class="bg-[#FAFAFA] ring-2 ring-[#F5F5F5] rounded-full p-2"
-                                            type="button">
+                                        {{-- Add member button --}}
+                                        <button @click="addMember = !addMember; activeProjectBox = detail.id"
+                                            class="bg-[#FAFAFA] ring-2 ring-[#F5F5F5] rounded-full p-2" type="button">
                                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -145,6 +199,145 @@
                                                     stroke-width="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4" />
                                             </svg>
                                         </button>
+                                        {{-- MODAL | Add member modal --}}
+                                        <div x-cloak x-show="addMember && activeProjectBox === detail.id"
+                                            class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
+                                            aria-model="false" role="dialog">
+                                            {{-- Modal Content --}}
+                                            <div x-data="{listMembers : false}" x-show="addMember"
+                                                x-transition:enter="transition ease-out duration-150"
+                                                x-transition:enter-start="opacity-0 scale-90"
+                                                x-translation:enter-end="opacity-100 scale-100"
+                                                x-transition:leave="transition ease-in duration-150"
+                                                x-transition:leave-start="opacity-100 scale-100"
+                                                x-transition:leave-end="opacity-0 scale-90"
+                                                class="relative bg-white z-50  rounded-xl shadow w-[300px] sm:w-[400px]">
+                                                {{-- Header --}}
+                                                <div
+                                                    class="flex flex-col gap-y-1 py-2 px-4 border-b-0 border-[#F5F5F5] ">
+                                                    {{-- <h2 class="font-bold text-3xl">Add members</h2> --}}
+                                                    <button @click="addMember = !addMember"
+                                                        class="text-[#929EAE] bg-transparent hover:bg-[#AAD2BA]/20 hover:text-black p-1.5 rounded-lg ml-auto inline-flex">
+                                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            aria-hidden="true" role="img"
+                                                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
+                                                            <path fill="currentColor" fill-rule="evenodd"
+                                                                d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884L7.116 8z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                        <span class="sr-only">Close modal</span>
+                                                    </button>
+                                                    <h2 class="font-bold text-center text-xl">Add member</h2>
+                                                </div>
+                                                {{-- Switcher --}}
+                                                <div class="flex justify-center py-4 px-8">
+                                                    <button @click=" listMembers = !listMembers "
+                                                        :class="listMembers ? 'border-[#F5F5F5]' : 'text-[#3E6766] border-[#89C09F] bg-[#AAD2BA]/20'  "
+                                                        class="border-2 hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-2.5 font-semibold text-sm w-full 
+                                                            transition duration-150 ease-linear rounded-l-lg">
+                                                        <span>Add</span>
+                                                    </button>
+                                                    <button @click="listMembers = !listMembers"
+                                                        :class="listMembers ? 'text-[#3E6766] border-[#89C09F] bg-[#AAD2BA]/20' : 'border-[#F5F5F5] ' "
+                                                        class="border-2  hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-2.5 font-semibold text-sm w-full 
+                                                            transition duration-150 ease-linear rounded-r-lg">
+                                                        <span>Members</span>
+                                                    </button>
+                                                </div>
+                                                {{-- Body --}}
+                                                {{-- Add member --}}
+                                                <template x-if="!listMembers">
+                                                    <form action="" onkeydown="return event.key != 'Enter';"
+                                                        class="px-4 py-6 space-y-4">
+                                                        <div class="font-semibold text-sm space-y-2.5">
+                                                            <label for="">Invite with email</label>
+                                                            <div x-data="{ projectMember: ''}"
+                                                                class="group border-2 border-[#F5F5F5] flex justify-between gap-x-1 
+                                                                    py-2 px-2.5 focus-within:ring-2 focus-within:border-transparent ring-[#89C09F] rounded-md w-full">
+                                                                {{-- template --}}
+                                                                <div x-data="projectMembers()"
+                                                                    class="flex flex-wrap items-center gap-y-1 max-h-[250px] overflow-y-auto scrollbar-thin  scrollbar-thumb-gray-400 scrollbar-track-gray-200 gap-x-1 w-full">
+                                                                    <template x-for="(member, index) in members"
+                                                                        :key="member.id">
+                                                                        <div
+                                                                            class="flex items-center gap-x-1 pr-1 py-0 text-[#3E6766] bg-[#AAD2BA]/20 rounded-xl">
+                                                                            <img src="{{ asset('images/Tasks/member1.png') }}"
+                                                                                alt="memberFace">
+                                                                            <span x-text="member.memberEmail"></span>
+                                                                            <button @click="removeMember(member)"
+                                                                                class="bg-transparent text-[#929EAE] hover:bg-[#89C09F] hover:text-white p-1 rounded-full"
+                                                                                type="button">
+                                                                                <svg class="w-3 h-3"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                    aria-hidden="true" role="img"
+                                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path fill="currentColor"
+                                                                                        fill-rule="evenodd"
+                                                                                        d="m7.116 8l-4.558 4.558l.884.884L8 8.884l4.558 4.558l.884-.884L8.884 8l4.558-4.558l-.884-.884L8 7.116L3.442 2.558l-.884.884L7.116 8z"
+                                                                                        clip-rule="evenodd" />
+                                                                                </svg>
+                                                                            </button>
+                                                                        </div>
+                                                                    </template>
+                                                                    <input
+                                                                        @keydown.enter="addMember(projectMember); projectMember = '' "
+                                                                        x-model="projectMember" size="4"
+                                                                        class="flex-grow flex focus:outline-none "
+                                                                        :placeholder=" members.length == 0 ? 'Add member via email' : ''  "
+                                                                        type="text">
+                                                                </div>
+                                                                <svg class="text-[#929EAE] w-5 h-5"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    aria-hidden="true" role="img"
+                                                                    preserveAspectRatio="xMidYMid meet"
+                                                                    viewBox="0 0 28 28">
+                                                                    <path fill="currentColor"
+                                                                        d="M17.754 11c.966 0 1.75.784 1.75 1.75v6.749a5.501 5.501 0 0 1-11.002 0V12.75c0-.966.783-1.75 1.75-1.75h7.502ZM3.75 11l4.382-.002a2.73 2.73 0 0 0-.621 1.532l-.01.22v6.749c0 1.133.291 2.199.8 3.127A4.501 4.501 0 0 1 2 18.499V12.75A1.751 1.751 0 0 1 3.751 11Zm16.124-.002L24.25 11c.966 0 1.75.784 1.75 1.75v5.75a4.5 4.5 0 0 1-6.298 4.127l.056-.102c.429-.813.69-1.729.738-2.7l.008-.326V12.75c0-.666-.237-1.276-.63-1.752ZM14 3a3.5 3.5 0 1 1 0 7a3.5 3.5 0 0 1 0-7Zm8.003 1a3 3 0 1 1 0 6a3 3 0 0 1 0-6ZM5.997 4a3 3 0 1 1 0 6a3 3 0 0 1 0-6Z" />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <input
+                                                            class="bg-[#89C09F] hover:bg-[#64c48a] text-white font-semibold text-sm p-2.5 cursor-pointer w-full rounded-md transition duration-150 ease-linear"
+                                                            type="submit" value="Add">
+                                                    </form>
+                                                </template>
+                                                {{-- List of members --}}
+                                                <template x-if="listMembers">
+                                                    <div x-data="projectMembers()" class="">
+                                                        {{-- Team leader --}}
+                                                        <h2 class="font-bold text-sm px-4">
+                                                            Project leader
+                                                        </h2>
+                                                        <div
+                                                            class="hover:bg-[#F5F5F5] font-semibold text-sm flex items-center px-4 py-2 gap-x-2">
+                                                            <img src="{{ asset('images/Tasks/member1.png') }}" alt="">
+                                                            <span x-text="teamLeader"></span>
+                                                        </div>
+                                                        {{-- number of current members --}}
+                                                        <h2 class="font-bold text-sm px-4"
+                                                            x-text="members.length + ' members' ">
+                                                        </h2>
+                                                        {{-- List of current members --}}
+                                                        <div class="font-semibold text-sm py-2">
+                                                            <template x-for="(member, index) in members"
+                                                                :key="member.id">
+                                                                <div
+                                                                    class="hover:bg-[#F5F5F5] flex items-center px-4 py-2 gap-x-2">
+                                                                    <img src="{{ asset('images/Tasks/member1.png') }}"
+                                                                        alt="">
+                                                                    <span x-text="member.memberEmail"></span>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -561,11 +754,13 @@
     function projectDetails() {
         return {
             // Array
+            activeProjectBox: 0,
             details: [
                 { 
                     id: 0, 
                     projectImage: '{{ asset('images/projects/project-lx1.png') }}',
                     projectTitle: 'Project X Landing Page', 
+                    projectLeader: 'Alex Thomson',
                     latestTask: 'Design a full layout for landing page', 
                     doneTask: 6,
                     allTasks: 30,
@@ -577,7 +772,8 @@
                 { 
                     id: 1, 
                     projectImage: '{{ asset('images/projects/project-lx3.png') }}',
-                    projectTitle: 'Project X Landing Page', 
+                    projectTitle: 'Project A Landing Page', 
+                    projectLeader: 'Alex Thomson',
                     latestTask: 'Design a full layout for landing page', 
                     doneTask: 14,
                     allTasks: 30,
@@ -589,7 +785,8 @@
                 {
                     id: 2, 
                     projectImage: '{{ asset('images/projects/project-lx5.png') }}',
-                    projectTitle: 'Project X Landing Page', 
+                    projectTitle: 'Project Y Landing Page', 
+                    projectLeader: 'Alex Thomson',
                     latestTask: 'Design a full layout for landing page', 
                     doneTask: 20,
                     allTasks: 50,
@@ -601,7 +798,8 @@
                 {
                     id: 3, 
                     projectImage: '{{ asset('images/projects/project-lx9.png') }}',
-                    projectTitle: 'Project X Landing Page', 
+                    projectTitle: 'Project Z Landing Page', 
+                    projectLeader: 'Alex Thomson',
                     latestTask: 'Design a full layout for landing page', 
                     doneTask: 16,
                     allTasks: 32,
@@ -613,7 +811,8 @@
                 {
                     id: 4, 
                     projectImage: '{{ asset('images/projects/project-lx9.png') }}',
-                    projectTitle: 'Project X Landing Page', 
+                    projectTitle: 'Project P Landing Page', 
+                    projectLeader: 'Alex Thomson',
                     latestTask: 'Design a full layout for landing page', 
                     doneTask: 16,
                     allTasks: 32,
@@ -626,6 +825,9 @@
             ],
                 deleteProject(detail) {
                 this.details.splice(this.details.indexOf(detail), 1);
+            },
+            getActiveStatus(id) {
+                return id === this.activeProjectBox
             }
         }
     }
