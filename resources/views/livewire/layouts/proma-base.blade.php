@@ -3,10 +3,17 @@
 
 
 {{-- Proma Layout --}}
-<div class="bg-white flex justify-center w-full h-screen">
+<div x-data="{ globalModalCloser : false }" class="bg-white flex justify-center w-full ">
+    {{-- Global modal closer --}}
+    <div x-cloak x-show="globalModalCloser"
+        class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
+        aria-model="false" role="dialog">
+
+    </div>
+    {{-- Main --}}
     <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full h-full  ">
         {{-- Left Panel --}}
-        <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:max-w-[250px] ' "
+        <nav :class=" minPanel ? 'max-w-[54px]' : 'max-w-[54px] lg:min-w-[250px] lg:max-w-[250px] ' "
             class="bg-white hidden md:flex flex-col w-full transition-all duration-300 py-6 ease-linear">
             {{-- Header --}}
             <div :class=" minPanel ? 'px-0 flex justify-center ' : 'flex items-center justify-center lg:justify-between px-0 lg:px-6 ' "
@@ -226,7 +233,7 @@
             </div>
             {{-- Bottom | Help Center --}}
             <div x-cloak :class=" minPanel ? 'hidden' : 'hidden lg:flex' "
-                class="flex-col mt-48 px-6 w-full h-full max-h-[250px]">
+                class="flex-col mt-48 px-6 w-full h-[250px] max-h-[250px]">
                 {{-- Desktop view --}}
                 <div class="relative flex flex-col bg-[#89C09F] w-full h-full rounded-lg">
                     <div class="absolute z-20">
@@ -297,7 +304,7 @@
         </nav>
         {{-- Right --}}
         <div x-data="{ tabledProjects : false, marketTeam : false }"
-            class="bg-[#FAFAFA] w-full h-screen  scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            class="bg-[#FAFAFA] w-full min-h-[900px] h-screen scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             {{-- Header --}}
             <livewire:layouts.proma-main-header />
             {{-- Body --}}

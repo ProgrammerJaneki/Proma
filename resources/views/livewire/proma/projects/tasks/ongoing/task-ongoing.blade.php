@@ -1,5 +1,5 @@
 <div x-data="{addTask : false, taskDetail : false, taskOptions : false}"
-    class="bg-transparent space-y-2 w-[350px] sm:w-[250px]">
+    class="bg-transparent space-y-2 w-[330px] sm:w-[250px]">
     {{-- Header --}}
     <div class="flex justify-between ">
         <h4 class="font-semibold text-base">Ongoing</h4>
@@ -39,6 +39,7 @@
                         {{-- Show modal options --}}
                         <div class="relative">
                             <button @click="taskOptions = !taskOptions; activeTask = ongoing.id"
+                                @keydown.escape="taskOptions = false"
                                 class="hover:bg-[#F5F5F5] group-hover:visible invisible p-1 rounded-md transition duration-150 ease-linear">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
@@ -69,7 +70,7 @@
                             </svg>
                         </button>
                         <div x-show="showDate">
-                            <div class="absolute" datepicker-buttons inline-datepicker data-date="08/18/2022">
+                            <div class="absolute" inline-datepicker data-date="08/18/2022">
                             </div>
                         </div>
                     </div>

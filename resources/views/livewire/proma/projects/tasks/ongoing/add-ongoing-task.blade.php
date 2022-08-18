@@ -10,9 +10,9 @@
                         <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" />
                     </svg>
                 </button>
-                <input @keydown.enter="addOngoingTask(newTask); newTask = ''; addTask = !addTask " x-model="newTask"
-                    x-ref="inputNewTask" class="whitespace-wrap focus:outline-none" placeholder="Write task name"
-                    type="text">
+                <input @keydown.enter="addOngoingTask(newTask); newTask = ''; addTask = !addTask "
+                    @keydown.escape="addTask = false; newTask = '' " x-model="newTask" x-ref="inputNewTask"
+                    class="whitespace-wrap focus:outline-none" placeholder="Write task name" type="text">
             </div>
             {{-- Body --}}
             <div x-data="{showDate : false, setAssignee : false}" class="flex gap-x-2">
@@ -70,7 +70,7 @@
                     </svg>
                 </button>
                 <div x-show="showDate">
-                    <div class="absolute" datepicker-buttons inline-datepicker data-date="08/18/2022">
+                    <div class="absolute" inline-datepicker data-date="08/18/2022">
                     </div>
                 </div>
             </div>

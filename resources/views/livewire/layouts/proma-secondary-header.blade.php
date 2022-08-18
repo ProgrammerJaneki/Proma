@@ -138,7 +138,7 @@
                 {{-- Sort Switcher --}}
                 <div x-data="{showSort : false, noSort : true, thisWeekSort : false, progressSort : false}"
                     class="relative">
-                    <button @click="showSort = !showSort"
+                    <button @click="showSort = !showSort" @keydown.escape="showSort = false"
                         :class="thisWeekSort || progressSort ? 'bg-[#89C09F]/20 text-[#89C09F]' : '' " class="hover:ring-2 ring-[#89C09F] hover:border-transparent border-2 border-[#F5F5F5] text-[#929EAE] hidden md:flex items-center gap-x-8 font-semibold 
                         text-xs p-2 rounded-md transition duration-150 ease-linear">
                         {{-- Sorted by the ff: --}}
@@ -357,7 +357,7 @@
                 {{-- Filter Switcher --}}
                 <div x-data="{showFilter : false, showDefault : true, filterMyTasks : false, filterThisWeek : false, filterNextWeek : false}"
                     class="relative">
-                    <button @click="showFilter = !showFilter"
+                    <button @click="showFilter = !showFilter" @keydown.escape="showFilter = false"
                         :class=" !showDefault ? 'bg-[#89C09F]/20 text-[#89C09F]' : '' " class="hover:ring-2 ring-[#89C09F] hover:border-transparent border-2 border-[#F5F5F5] text-[#929EAE] hidden md:flex items-center font-semibold 
                         text-xs p-2 rounded-md transition duration-150 ease-linear">
                         {{-- Filtered by the ff: --}}

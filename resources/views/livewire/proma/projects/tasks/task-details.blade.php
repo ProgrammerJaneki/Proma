@@ -26,15 +26,30 @@
         <div class="relative">
             {{-- Floated Details --}}
             <div x-cloak x-show="taskDetail && activeTask === todo.id"
-                class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
+                class="fixed inset-0 top-0 left-0 right-0 z-50 hidden sm:flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
                 aria-model="false" role="dialog">
                 <div x-show="taskDetail" x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0 scale-90" x-translation:enter-end="opacity-100 scale-100"
                     x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
-                    class="relative bg-white  rounded-xl shadow z-100 w-[300px] sm:w-[500px] h-[500px]">
-                    {{-- Close button --}}
-                    <div class="flex flex-col py-2 px-4 border-b-0 border-[#F5F5F5] ">
+                    class="relative bg-white  rounded-xl shadow z-100 w-[300px] sm:w-[600px] ">
+                    {{-- Header --}}
+                    <div x-data="{togglePrivacy : false}"
+                        class="border-b-2 border-[#F5F5F5] flex justify-between font-semibold text-xs text-[#929EAE] py-6 px-6">
+                        {{-- Close button --}}
+                        <button
+                            class="border-[1px] hover:ring-2 ring-[#89C09F] hover:text-[#89C09F] flex items-center gap-x-2 p-2 rounded-md transition duration-150 ease-linear">
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8 12.5l3 3l5-6" />
+                                    <circle cx="12" cy="12" r="10" />
+                                </g>
+                            </svg>
+                            <span>
+                                Mark Complete
+                            </span>
+                        </button>
                         <button @click="taskDetail = !taskDetail; taskOptions = !taskOptions"
                             class="text-[#929EAE] bg-transparent hover:bg-[#AAD2BA]/20 hover:text-black p-1.5 rounded-lg ml-auto inline-flex">
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -47,92 +62,120 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    {{-- Header --}}
-                    <div x-data="{togglePrivacy : false}"
-                        class="flex justify-between font-semibold text-sm text-[#929EAE] px-4">
-                        {{-- Close button --}}
-                        <button
-                            class="border-[1px] hover:ring-2 ring-[#89C09F] hover:text-[#89C09F] flex items-center gap-x-2 py-2 px-4 rounded-md transition duration-150 ease-linear">
-                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
-                                viewBox="0 0 16 16">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="1.5" d="M2.75 2.75v10.5L12.25 8z" />
-                            </svg>
-                            <span>
-                                Start task
-                            </span>
-                        </button>
-                        {{-- Will toggle between private and public --}}
-                        <template x-if="!togglePrivacy">
-                            <button @click="togglePrivacy = !togglePrivacy"
-                                class="hover:bg-[#F5F5F5] py-2 px-4 rounded-md transition duration-150 ease-linear">
-                                <span>Make public</span>
-                            </button>
-                        </template>
-                        <template x-if="togglePrivacy">
-                            <button @click="togglePrivacy = !togglePrivacy"
-                                class="hover:bg-[#F5F5F5] py-2 px-4 rounded-md transition duration-150 ease-linear">
-                                <span>Make private</span>
-                            </button>
-                        </template>
-                    </div>
                     {{-- Body --}}
-                    <div class="p-4 space-y-2.5">
+                    <div class="space-y-2.5">
                         {{-- task name --}}
-                        <div class="font-bold text-xl">
-                            <input type="text" :value="todo.taskTitle"
-                                class="text-[#1B212D] p-2 focus:ring-2 ring-[#89C09F] focus:outline-none w-full rounded-md">
-                        </div>
-                        {{-- assignee --}}
-                        <div>
-                            <h2 class="font-bold px-2 text-base">Assignee</h2>
-                            <div class="flex items-center px-2 gap-x-2">
-                                <img src="{{ asset('images/Tasks/member2.png') }}" alt="">
-                                <input type="text" :value="todo.assignee"
-                                    class="text-[#1B212D] p-2 focus:ring-2 ring-[#89C09F] focus:outline-none w-full rounded-md">
+                        <div class="font-semibold text-sm">
+                            <div class="flex items-center pt-4 px-6 text-[#929EAE] gap-x-2">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M17.28 8.72a.75.75 0 0 1 0 1.06l-2 2a.75.75 0 0 1-1.06 0l-1-1a.75.75 0 1 1 1.06-1.06l.47.47l1.47-1.47a.75.75 0 0 1 1.06 0Zm0 6.56a.75.75 0 1 0-1.06-1.06l-1.47 1.47l-.47-.47a.75.75 0 1 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2-2ZM7 10.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1-.75-.75ZM7.75 15a.75.75 0 0 0 0 1.5h3.5a.75.75 0 0 0 0-1.5h-3.5Zm8.236-11a2.25 2.25 0 0 0-2.236-2h-3.5a2.25 2.25 0 0 0-2.236 2H6.25A2.25 2.25 0 0 0 4 6.25v13.5A2.25 2.25 0 0 0 6.25 22h11.5A2.25 2.25 0 0 0 20 19.75V6.25A2.25 2.25 0 0 0 17.75 4h-1.764ZM10.25 6.5h3.5c.78 0 1.467-.397 1.871-1h2.129a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H6.25a.75.75 0 0 1-.75-.75V6.25a.75.75 0 0 1 .75-.75h2.129c.404.603 1.091 1 1.871 1Zm0-3h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1 0-1.5Z" />
+                                </svg>
+                                <label for="taskName" class="font-bold">Task Name</label>
+                            </div>
+                            <div class="px-10">
+                                <input type="text" :value="todo.taskTitle"
+                                    class="text-[#1B212D] p-2 focus:ring-2 ring-[#89C09F] focus:outline-none w-full rounded-sm">
                             </div>
                         </div>
-                        {{-- Due date --}}
-                        <div>
-                            <h2 class="font-bold px-2 text-base">Due date</h2>
-                            <div class="flex items-center px-2 gap-x-2">
-                                <button class="relative hover:bg-[#F5F5F5] rounded-full p-1 border-[1px] border-dashed">
-                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
-                                        <path fill="currentColor"
-                                            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699ZM1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756L1.4 7.742Zm5.267 6.877v1.666H5v-1.666h1.667Zm4.166 0v1.666H9.167v-1.666h1.666Zm4.167 0v1.666h-1.667v-1.666H15Zm-8.333-3.977v1.666H5v-1.666h1.667Zm4.166 0v1.666H9.167v-1.666h1.666Zm4.167 0v1.666h-1.667v-1.666H15ZM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0v-.92Z" />
+                        {{-- description --}}
+                        <div class="font-semibold space-y-2 text-sm">
+                            <div class="flex items-center pt-2 px-6 text-[#929EAE] gap-x-2">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M7 7h10v2H7zm0 4h7v2H7z" />
+                                    <path fill="currentColor"
+                                        d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14H6.667L4 18V4h16v12z" />
+                                </svg>
+                                <label for="taskDetails" class="font-bold">Task
+                                    detail</label>
+                            </div>
+                            <div class="px-10">
+                                <textarea id="taskDetails" rows="4" class="resize-none block p-2.5 w-full text-sm text-gray-900 rounded-sm focus:outline-none border-gray-300 
+                                    focus:ring-2 focus:ring-[#89C09F]  -700 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ashdasgdjashdgasjdassdadadsadasdasddsadddddddddddddddddd 
+                            </textarea>
+                            </div>
+                        </div>
+                        <div class="flex font-semibold text-sm px-8">
+                            {{-- Assigned by --}}
+                            <div class="space-y-1 border-r-2 border-[#F5F5F5] px-4">
+                                <label for="taskName" class="font-bold text-[#929EAE]">Assigned by</label>
+                                <p class="text-[#1B212D] whitespace-nowrap">Team leader</p>
+                            </div>
+                            {{-- Assignee --}}
+                            <div class="space-y-1 border-r-2 border-[#F5F5F5] px-4">
+                                <label for="taskName" class="font-bold text-[#929EAE]">Assigned </label>
+                                <p class="text-[#1B212D] whitespace-nowrap">Jannel Revilla</p>
+                            </div>
+                            {{-- Assignee --}}
+                            <div class="space-y-1 border-r-2 border-[#F5F5F5] px-4">
+                                <label for="taskName" class="font-bold text-[#929EAE]">Due Date</label>
+                                <p class="text-[#1B212D] whitespace-nowrap">August 18, 2022</p>
+                            </div>
+                            {{-- Assignee --}}
+                            <div x-data="{ togglePrivacy : false }" class="space-y-1 px-4">
+                                <label for="taskName" class="font-bold text-[#929EAE]">Privacy</label>
+                                <p class="text-[#1B212D] whitespace-nowrap">Private</p>
+                            </div>
+                        </div>
+                        {{-- Attachment --}}
+                        <div class="font-semibold space-y-4 text-sm">
+                            <div class="flex items-center pt-4 px-6 text-[#929EAE] gap-x-2">
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M6 7.91V16a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V6a4 4 0 0 0-4-4v0a4 4 0 0 0-4 4v9.182a2 2 0 0 0 2 2v0a2 2 0 0 0 2-2V8" />
+                                </svg>
+                                <label for="taskName" class="font-bold">Attachment</label>
+                                <button>
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" idth="1em" height="1em"
+                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                        <g fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" d="M12 8v4m0 0v4m0-4h4m-4 0H8" />
+                                            <circle cx="12" cy="12" r="10" />
+                                        </g>
                                     </svg>
                                 </button>
-                                <input type="text" :value="todo.taskDate"
-                                    class="text-[#1B212D] p-2 focus:ring-2 ring-[#89C09F] focus:outline-none w-full rounded-md">
                             </div>
-                        </div>
-                        {{-- task detail --}}
-                        <div class="px-2 space-y-2">
-                            <label for="taskDetails" class="font-bold text-base">Task
-                                detail</label>
-                            <textarea id="taskDetails" rows="4"
-                                class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border focus:outline-none border-gray-300 focus:ring-2 focus:ring-[#89C09F]  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Enter task details"></textarea>
+                            <div class="px-12">
+                                <div class="border-2 p-2 border-[#F5F5F5] font-semibold text-sm rounded-md">
+                                    <div class="flex gap-x-2">
+                                        <img class="w-[100px] h-[100px] rounded-md"
+                                            src="{{ asset('images/messages/house.png') }}" alt="">
+                                        <div class="flex flex-col gap-y-2 w-full">
+                                            <h2 class="text-[#1B212D]">Landing Page Image</h2>
+                                            <p class="text-[#929EAE]">Added August 18, 2022</p>
+                                            <div class="border-t-2 border-[#F5F5F5] pt-2 mt-auto w-full ">
+                                                <button class=" mt-auto text-xs flex items-center gap-x-2 max-w-[90px] rounded-md 
+                                                    text-[#929EAE] hover:text-[#E69597]">
+                                                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                                                        <path fill="currentColor"
+                                                            d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z" />
+                                                    </svg>
+                                                    <span>Delete</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {{-- Bottom --}}
-                    <div class="flex justify-between px-6">
+                    <div class="px-6 py-6 mt-4">
                         <button
                             class="bg-[#90C09F] hover:bg-[#64C48A] text-white flex items-center gap-x-2 py-2 px-8 rounded-md transition duration-150 ease-linear">
                             <span>
                                 Update
                             </span>
                         </button>
-                        <button @click="taskDetail = !taskDetail; taskOptions = !taskOptions"
-                            class="border-[0px] hover:ring-2 ring-[#89C09F] hover:text-[#89C09F] flex items-center gap-x-2 py-2 px-8 rounded-md transition duration-150 ease-linear">
-                            <span>
-                                Leave
-                            </span>
-                        </button>
                     </div>
                 </div>
             </div>
+
             <button @click="taskDetail = !taskDetail; activeTask = todo.id"
                 class="bg-white hover:bg-[#FAFAFA] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"

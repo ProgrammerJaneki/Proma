@@ -68,7 +68,8 @@
                     <span class="text-sm">Jannel Revilla</span>
                     <span class="text-xs">Intern</span>
                 </dif>
-                <button @click=" showProfile = !showProfile " class="text-[#929EAE] relative flex items-center gap-1">
+                <button @click=" showProfile = !showProfile " @keydown.escape="showProfile = false"
+                    class="text-[#929EAE] relative flex items-center gap-1">
                     {{-- Profile Modal --}}
                     <div :class=" showProfile ? 'flex' : 'hidden' "
                         class="flex-col absolute bg-white border-2 border-[#F5F5F5] font-semibold text-[#929EAE] text-sm top-10 right-0 z-40 w-[180px]  rounded-sm">

@@ -10,9 +10,9 @@
                         <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" />
                     </svg>
                 </button>
-                <input @keydown.enter="addNewTask(newTask); newTask = ''; addTask = !addTask " x-model="newTask"
-                    x-ref="inputNewTask" class="whitespace-wrap focus:outline-none" placeholder="Write task name"
-                    type="text">
+                <input @keydown.enter="addNewTask(newTask); newTask = ''; addTask = !addTask "
+                    @keydown.escape="addTask = false; newTask = '' " x-model="newTask" x-ref="inputNewTask"
+                    class="whitespace-wrap focus:outline-none" placeholder="Write task name" type="text">
             </div>
             {{-- Body --}}
             <div x-data="{showDate : false, setAssignee : false}" class="flex gap-x-2">
@@ -70,13 +70,14 @@
                     </svg>
                 </button>
                 <div x-show="showDate">
-                    <div class="absolute" datepicker-buttons inline-datepicker data-date="08/18/2022">
+                    <div class="absolute" inline-datepicker data-date="08/18/2022">
                     </div>
                 </div>
             </div>
         </div>
-        <button @click="addTask = true; $nextTick(() => { $refs.inputNewTask.focus(); });"
-            class="flex items-center justify-center hover:bg-[#F5F5F5] text-[#929EAE] p-2 font-semibold text-sm w-full rounded-md transition duration-150 ease-linear">
+        <button
+            class="flex items-center justify-center hover:bg-[#F5F5F5] text-[#929EAE] p-2 font-semibold text-sm w-full rounded-md transition duration-150 ease-linear"
+            @click="addTask = true; $nextTick(() => { $refs.inputNewTask.focus(); });">
             <svg class="font-bold w-4 h-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <g id="Add">
                     <path id="Vector 52" d="M12 6L12 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"
