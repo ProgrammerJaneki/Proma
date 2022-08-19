@@ -231,16 +231,16 @@
                                                     <h2 class="font-bold text-center text-xl">Add member</h2>
                                                 </div>
                                                 {{-- Switcher --}}
-                                                <div class="flex justify-center py-4 px-8">
+                                                <div class="flex justify-center py-2 px-8">
                                                     <button @click=" listMembers = !listMembers "
                                                         :class="listMembers ? 'border-[#F5F5F5]' : 'text-[#3E6766] border-[#89C09F] bg-[#AAD2BA]/20'  "
-                                                        class="border-2 hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-2.5 font-semibold text-sm w-full 
+                                                        class="border-2 hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-1.5 font-semibold text-sm w-full 
                                                             transition duration-150 ease-linear rounded-l-lg">
                                                         <span>Add</span>
                                                     </button>
                                                     <button @click="listMembers = !listMembers"
                                                         :class="listMembers ? 'text-[#3E6766] border-[#89C09F] bg-[#AAD2BA]/20' : 'border-[#F5F5F5] ' "
-                                                        class="border-2  hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-2.5 font-semibold text-sm w-full 
+                                                        class="border-2  hover:text-[#3E6766] hover:border-[#89C09F] hover:bg-[#AAD2BA]/20 py-1.5 font-semibold text-sm w-full 
                                                             transition duration-150 ease-linear rounded-r-lg">
                                                         <span>Members</span>
                                                     </button>

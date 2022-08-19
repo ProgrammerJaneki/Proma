@@ -4,12 +4,6 @@
 
 {{-- Proma Layout --}}
 <div x-data="{ globalModalCloser : false }" class="bg-white flex justify-center w-full ">
-    {{-- Global modal closer --}}
-    <div x-cloak x-show="globalModalCloser"
-        class="fixed inset-0 top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-smoke-dark"
-        aria-model="false" role="dialog">
-
-    </div>
     {{-- Main --}}
     <section x-data="{ minPanel: false }" class="text-[#1B212D] flex w-full h-full  ">
         {{-- Left Panel --}}

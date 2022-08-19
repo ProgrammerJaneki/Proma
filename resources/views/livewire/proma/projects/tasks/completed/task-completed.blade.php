@@ -1,5 +1,5 @@
-<div x-data="{addTask : false, taskDetail : false, taskOptions : false}"
-    class="bg-transparent space-y-2 w-[330px] sm:w-[250px]">
+<div x-data="{addTask : false, taskDetail : false, taskOptions : false}" class="bg-transparent space-y-2 w-[330px] sm:w-[250px] max-h-[500px] sm:max-h-[720px] px-2 hover:overflow-y-auto hover:scrollbar-thin  sm:scrollbar-thumb-gray-400 scrollbar-track-gray-200 
+            transition-all duration-150 ease-linear">
     {{-- Header --}}
     <div class="flex justify-between ">
         <h4 class="font-semibold text-base">Completed</h4>
@@ -61,7 +61,7 @@
                             {{-- 24px --}}
                             <img class="max-w-[24px] max-h-[24px]" src="{{ asset('images/Tasks/member2.png') }}" alt="">
                         </button>
-                        <button @click="showDate = !showDate"
+                        <button @click="showDate = !showDate" @keydown.escape="showDate = false"
                             class="relative hover:bg-[#F5F5F5] rounded-full p-1 border-[1px] border-dashed">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
                                 viewBox="0 0 20 20">

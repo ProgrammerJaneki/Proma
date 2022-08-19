@@ -29,7 +29,7 @@
                     </button>
                     <template x-if="setAssignee">
                         <div
-                            class="bg-white border-2 space-y-2 border-[#F5F5F5] font-semibold text-sm absolute p-2 left-0 rounded-md  ">
+                            class="bg-white border-2 space-y-2 border-[#F5F5F5] font-semibold text-sm absolute left-0 bottom-5 z-50 p-2 rounded-md  ">
                             <div class="flex items-center justify-between">
                                 <h2 class="">
                                     Assignee

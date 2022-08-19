@@ -1,7 +1,6 @@
 {{-- Modal Options --}}
 <template x-if="taskOptions && activeTask === ongoing.id">
-    <div
-        class="bg-white border-2 border-[#F5F5F5] absolute font-semibold z-50 text-sm right-0 sm:left-0 rounded-md   w-[150px]">
+    <div class="bg-white border-2 border-[#F5F5F5] absolute font-semibold z-50 text-sm right-0 rounded-md   w-[150px]">
         {{-- Edit Name --}}
         <button
             class="bg-white hover:bg-[#FAFAFA] flex items-center gap-x-2 p-2 w-full whitespace-nowrap transition duration-150 ease-linear">
